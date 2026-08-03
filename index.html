@@ -526,13 +526,13 @@
   .enc-text .enc-meta span{white-space:normal}
   @media(max-width:520px){.enc-text .enc-meta{grid-template-columns:1fr}}
   .enc-video{width:100%;border-radius:18px;transition:border-color .4s,box-shadow .45s,transform .45s}
-  .enc-video::before{display:none}
-  .enc-video::after{
+  .enc-video.media::before{display:none}
+  .enc-video.media::after{
     inset:-10% -60%;background:linear-gradient(105deg, transparent 42%, rgba(237,230,214,.14) 49%, rgba(255,255,255,.22) 51%, rgba(237,230,214,.14) 53%, transparent 60%);
     filter:none;transform:translateX(-60%);
     transition:transform 1.1s cubic-bezier(.25,.6,.2,1);
   }
-  .enc-video:hover::after{inset:-10% -60%;transform:translateX(60%)}
+  .enc-video.media:hover::after{inset:-10% -60%;transform:translateX(60%)}
   .enc-video:hover{
     border-color:rgba(216,185,138,.7);
     box-shadow:0 18px 60px rgba(0,0,0,.5), 0 0 34px rgba(216,185,138,.14);
