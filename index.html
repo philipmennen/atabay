@@ -719,16 +719,16 @@
 
   /* ---------- custom cursor ---------- */
   #cur,#curring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:120;transform:translate(-50%,-50%)}
-  #cur{width:6px;height:6px;background:var(--gold);transition:background .25s}
+  #cur{width:30px;height:24px;background:none;border-radius:0}
+  #cur svg{width:100%;height:100%;display:block;filter:drop-shadow(0 1px 5px rgba(7,18,25,.55));transition:opacity .25s}
+  #cur.dark svg path,#cur.dark svg circle{fill:var(--ink-deep)}
   #curring{
     width:36px;height:36px;border:1px solid rgba(216,185,138,.5);
     transition:width .35s,height .35s,border-color .35s,background .35s;
   }
   #curring.big{width:60px;height:60px;border-color:var(--gold);background:rgba(216,185,138,.08)}
-  #cur.dark{background:var(--ink-deep)}
   #curring.dark{border-color:rgba(11,27,38,.55)}
   #curring.dark.big{border-color:var(--ink-deep);background:rgba(11,27,38,.08)}
-  #cur.dark{background:var(--ink-deep)}
   #curring.dark{border-color:rgba(11,27,38,.6)}
   #curring.big.dark{border-color:var(--ink-deep);background:rgba(11,27,38,.08)}
   html.curfx,html.curfx a,html.curfx button{cursor:none}
@@ -1319,6 +1319,7 @@ if(window.Lenis && !REDUCE){
 if(FINE && !REDUCE){
   document.documentElement.classList.add('curfx');
   const d=document.createElement('div');d.id='cur';
+  d.innerHTML='<svg viewBox="22 32 186 150" xmlns="http://www.w3.org/2000/svg"><path d="M 204 150 C 184 142 178 130 176 112 A 76 76 0 1 0 42 161 A 16 16 0 0 0 66 140 A 44 44 0 1 1 144 112 C 148 130 168 142 204 150 Z" fill="#EDE6D6"/><circle cx="102" cy="118" r="15" fill="#D8B98A"/></svg>';
   const r=document.createElement('div');r.id='curring';
   document.body.append(d,r);
   let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
