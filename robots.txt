@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://philipmennen.github.io/atabay/sitemap.xml
