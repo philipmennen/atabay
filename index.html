@@ -568,6 +568,15 @@
       linear-gradient(90deg, rgba(7,18,25,.74) 0%, rgba(7,18,25,.32) 48%, rgba(7,18,25,.05) 80%);
   }
   .breaks-wrap .sec-kicker,.breaks-wrap .sec-head,.breaks-copy{position:relative;z-index:2}
+  .breaks-compass{
+    position:absolute;top:auto;bottom:14%;right:6%;width:150px;
+    opacity:.25;z-index:2;filter:drop-shadow(0 2px 12px rgba(7,18,25,.6));
+  }
+  .breaks-stamp{
+    position:absolute;right:clamp(1.6rem,6vw,6rem);bottom:2.4rem;z-index:2;margin:0;
+    color:var(--gold);border-color:rgba(216,185,138,.65);
+  }
+  @media(max-width:900px){.breaks-stamp{right:1.4rem;bottom:1.6rem}}
   .breaks-copy{
     display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
     gap:1.3rem;max-width:44em;min-height:46vh;padding:2rem 0 2.5rem;
@@ -1037,6 +1046,15 @@
       <img src="assets/lw-12.jpg" alt="">
     </div>
   </div>
+
+  <svg class="compass breaks-compass" viewBox="0 0 200 200" aria-hidden="true">
+    <g fill="none" stroke="#EDE6D6" stroke-width="1">
+      <circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="70"/>
+      <path d="M100 6 v28 M100 166 v28 M6 100 h28 M166 100 h28" />
+      <path d="M100 30 L108 100 L100 170 L92 100 Z" fill="#EDE6D6" stroke="none" opacity=".7"/>
+    </g>
+  </svg>
+  <span class="stamp breaks-stamp" aria-hidden="true">Sin mapa.</span>
 
   <p class="label sec-kicker reveal">Where the map ends.</p>
   <div class="sec-head reveal">
