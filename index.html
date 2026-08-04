@@ -219,6 +219,16 @@
   .compass{position:absolute;top:auto;bottom:9%;right:5%;width:170px;opacity:.14;pointer-events:none;animation:spin 240s linear infinite}
   @media(max-width:900px){.compass{display:none}}
   @keyframes spin{to{transform:rotate(360deg)}}
+  .compass .needle{transform-origin:100px 100px;animation:needle 6.5s ease-in-out infinite}
+  @keyframes needle{
+    0%{transform:rotate(-7deg)}
+    22%{transform:rotate(6deg)}
+    45%{transform:rotate(-4deg)}
+    63%{transform:rotate(8deg)}
+    82%{transform:rotate(-2deg)}
+    100%{transform:rotate(-7deg)}
+  }
+  @media(prefers-reduced-motion:reduce){.compass .needle{animation:none}}
 
   /* ---------- shared section chrome ---------- */
   section{position:relative;padding:clamp(5rem,12vh,9rem) clamp(1.4rem,6vw,6rem)}
@@ -835,7 +845,7 @@
     <g fill="none" stroke="#EDE6D6" stroke-width="1">
       <circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="70"/>
       <path d="M100 6 v28 M100 166 v28 M6 100 h28 M166 100 h28" />
-      <path d="M100 30 L108 100 L100 170 L92 100 Z" fill="#EDE6D6" stroke="none" opacity=".7"/>
+      <path class="needle" d="M100 30 L108 100 L100 170 L92 100 Z" fill="#EDE6D6" stroke="none" opacity=".7"/>
     </g>
   </svg>
 
@@ -1051,7 +1061,7 @@
     <g fill="none" stroke="#EDE6D6" stroke-width="1">
       <circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="70"/>
       <path d="M100 6 v28 M100 166 v28 M6 100 h28 M166 100 h28" />
-      <path d="M100 30 L108 100 L100 170 L92 100 Z" fill="#EDE6D6" stroke="none" opacity=".7"/>
+      <path class="needle" d="M100 30 L108 100 L100 170 L92 100 Z" fill="#EDE6D6" stroke="none" opacity=".7"/>
     </g>
   </svg>
   <span class="stamp breaks-stamp" aria-hidden="true">Sin mapa.</span>
