@@ -116,7 +116,7 @@
     transition:background .5s,backdrop-filter .5s, padding .5s;
   }
   header.scrolled{
-    background:rgba(216,185,138,.94);backdrop-filter:blur(14px);
+    background:rgba(216,185,138,.72);backdrop-filter:blur(16px);
     padding-top:.85rem;padding-bottom:.85rem;
     border-bottom:1px solid rgba(11,27,38,.14);
   }
@@ -175,13 +175,13 @@
   #contours{position:absolute;inset:-10%;width:120%;height:120%;opacity:.5;pointer-events:none}
   .hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
   .mark-ring{
-    width:clamp(120px,14vw,168px);aspect-ratio:1;border-radius:50%;
+    width:clamp(106px,12vw,148px);aspect-ratio:1;border-radius:50%;
     border:1px solid rgba(216,185,138,.5);
     display:flex;align-items:center;justify-content:center;
     margin-bottom:2.6rem;
     box-shadow:0 0 50px rgba(216,185,138,.08), inset 0 0 30px rgba(216,185,138,.05);
   }
-  .hero .mark{width:56%;display:block;transform:translateY(4%);filter:drop-shadow(0 0 40px rgba(216,185,138,.18))}
+  .hero .mark{width:68%;display:block;filter:drop-shadow(0 0 40px rgba(216,185,138,.18))}
   .hero .mark .moon{animation:moonrise 9s ease-in-out infinite alternate}
   @keyframes moonrise{from{transform:translateY(2.5px)}to{transform:translateY(-2.5px)}}
   .hero-eyebrow{margin-bottom:2rem;color:var(--bone-dim)}
@@ -1244,9 +1244,12 @@
 <script>
 /* ---- header state ---- */
 const hdr=document.getElementById('hdr');
+const mqMobile=matchMedia('(max-width:760px)');
 addEventListener('scroll',()=>{
   hdr.classList.toggle('scrolled',scrollY>40);
-  hdr.style.transform='translateY(-'+Math.min(scrollY,hdr.offsetHeight+60)+'px)';
+  hdr.style.transform=mqMobile.matches
+    ? 'translateY(-'+Math.min(scrollY,hdr.offsetHeight+60)+'px)'
+    : '';
   const tt=document.getElementById('totop');
   if(tt)tt.classList.toggle('show',scrollY>innerHeight*.8);
 },{passive:true});
