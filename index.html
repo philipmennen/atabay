@@ -180,11 +180,6 @@
     display:flex;align-items:center;justify-content:center;
     margin-bottom:2.6rem;
   }
-  .ring-compass{
-    position:absolute;inset:0;width:100%;height:100%;
-    animation:spin 240s linear infinite;
-    filter:drop-shadow(0 0 24px rgba(216,185,138,.15));
-  }
   .hero .mark{width:68%;display:block;filter:drop-shadow(0 0 40px rgba(216,185,138,.18))}
   .hero .mark .moon{animation:moonrise 9s ease-in-out infinite alternate}
   @keyframes moonrise{from{transform:translateY(2.5px)}to{transform:translateY(-2.5px)}}
@@ -870,12 +865,6 @@
 
   <div class="hero-inner">
     <div class="mark-ring">
-    <svg class="ring-compass" viewBox="0 0 200 200" aria-hidden="true">
-      <g fill="none" stroke="#D8B98A" stroke-width="2" stroke-opacity=".65">
-        <circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="79"/>
-        <path d="M100 4 v16 M100 180 v16 M4 100 h16 M180 100 h16"/>
-      </g>
-    </svg>
     <svg class="mark" viewBox="22 32 186 150" xmlns="http://www.w3.org/2000/svg" aria-label="ATABAY Luna Llena mark">
       <path d="M 204 150 C 184 142 178 130 176 112 A 76 76 0 1 0 42 161 A 16 16 0 0 0 66 140 A 44 44 0 1 1 144 112 C 148 130 168 142 204 150 Z" fill="#EDE6D6"/>
       <circle class="moon" cx="102" cy="118" r="15" fill="#D8B98A"/>
