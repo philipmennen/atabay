@@ -125,15 +125,23 @@
   header.scrolled .brand svg path,header.scrolled .brand svg circle{fill:var(--ink)}
   header.scrolled nav.top a{color:rgba(11,27,38,.52)}
   header.scrolled nav.top a:hover{color:var(--ink-deep);text-shadow:0 0 .5px currentColor}
-  header.scrolled nav.top a.wa{color:var(--ink);border-color:rgba(11,27,38,.5)}
-  header.scrolled nav.top a.wa:hover{background:var(--ink);color:var(--gold)}
+  header.scrolled a.wa{color:var(--ink);border-color:rgba(11,27,38,.5)}
+  header.scrolled a.wa:hover{background:var(--ink);color:var(--gold)}
   .brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
   .brand svg{height:30px;width:auto;display:block}
   .brand-word{
     font-family:var(--sans);font-stretch:125%;font-weight:600;
     letter-spacing:.34em;font-size:.95rem;line-height:1;transform:translateY(.06em);
   }
-  nav.top{display:flex;gap:2.2rem;align-items:center}
+  nav.top{display:flex;gap:2.2rem;align-items:center;margin-left:auto;margin-right:1.6rem}
+  .nav-right{display:flex;align-items:center;gap:.9rem}
+  .nav-toggle{
+    display:none;background:none;cursor:pointer;
+    border:1px solid rgba(216,185,138,.4);border-radius:8px;
+    color:var(--gold);font-size:1.05rem;line-height:1;padding:.35em .55em;
+    transition:color .3s,border-color .3s;
+  }
+  header.scrolled .nav-toggle{color:var(--ink);border-color:rgba(11,27,38,.5)}
   @media(max-width:1180px){nav.top{gap:1.3rem}}
   nav.top a{
     font-family:var(--mono);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;
@@ -141,9 +149,20 @@
   }
   @media(max-width:1180px){nav.top a{letter-spacing:.18em}}
   nav.top a:hover{color:var(--gold)}
-  nav.top a.wa{color:var(--gold);border:1px solid rgba(216,185,138,.4);padding:.55em 1.1em;border-radius:2em;transition:all .3s}
-  nav.top a.wa:hover{background:var(--gold);color:var(--ink)}
-  @media(max-width:760px){nav.top a:not(.wa){display:none}}
+  header a.wa{font-family:var(--mono);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;white-space:nowrap;color:var(--gold);border:1px solid rgba(216,185,138,.4);padding:.55em 1.1em;border-radius:2em;transition:all .3s}
+  header a.wa:hover{background:var(--gold);color:var(--ink)}
+  @media(max-width:760px){
+    .nav-toggle{display:block}
+    nav.top{
+      position:absolute;top:100%;left:0;right:0;margin:0;
+      display:none;flex-direction:column;align-items:stretch;gap:0;
+      background:rgba(7,18,25,.97);backdrop-filter:blur(12px);
+      padding:.4rem 1.4rem 1.1rem;border-bottom:1px solid var(--hairline);
+    }
+    nav.top.open{display:flex}
+    nav.top a{padding:1em 0;font-size:.72rem;border-bottom:1px dashed var(--hairline);color:var(--bone-dim)}
+    nav.top a:last-child{border-bottom:none}
+  }
 
   /* ---------- hero ---------- */
   .hero{
@@ -773,14 +792,17 @@
     </svg>
     <span class="brand-word">ATABAY</span>
   </a>
-  <nav class="top">
+  <nav class="top" id="mainnav">
     <a href="#land">The Land</a>
     <a href="#perla">Perla Marina</a>
     <a href="#breaks">The Breaks</a>
     <a href="#story">The Name</a>
     <a href="#facts">Title &amp; Facts</a>
-    <a class="wa" href="https://wa.me/18292827828" target="_blank" rel="noopener">WhatsApp</a>
   </nav>
+  <div class="nav-right">
+    <a class="wa" href="https://wa.me/18292827828" target="_blank" rel="noopener">WhatsApp</a>
+    <button class="nav-toggle" aria-label="Menu" aria-controls="mainnav" onclick="document.getElementById('mainnav').classList.toggle('open')">☰</button>
+  </div>
 </header>
 
 <!-- ================= HERO ================= -->
@@ -1263,6 +1285,11 @@ addEventListener('scroll',()=>{
   }
   requestAnimationFrame(drift);
 })();
+
+/* ---- mobile menu: close on link click ---- */
+document.querySelectorAll('#mainnav a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('mainnav').classList.remove('open');
+}));
 
 /* ---- reveal on scroll ---- */
 const io=new IntersectionObserver(es=>es.forEach(e=>{
