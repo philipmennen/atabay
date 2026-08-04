@@ -174,7 +174,14 @@
   }
   #contours{position:absolute;inset:-10%;width:120%;height:120%;opacity:.5;pointer-events:none}
   .hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
-  .hero .mark{width:clamp(84px,10vw,120px);margin-bottom:2.6rem;filter:drop-shadow(0 0 40px rgba(216,185,138,.18))}
+  .mark-ring{
+    width:clamp(120px,14vw,168px);aspect-ratio:1;border-radius:50%;
+    border:1px solid rgba(216,185,138,.5);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:2.6rem;
+    box-shadow:0 0 50px rgba(216,185,138,.08), inset 0 0 30px rgba(216,185,138,.05);
+  }
+  .hero .mark{width:56%;display:block;transform:translateY(4%);filter:drop-shadow(0 0 40px rgba(216,185,138,.18))}
   .hero .mark .moon{animation:moonrise 9s ease-in-out infinite alternate}
   @keyframes moonrise{from{transform:translateY(2.5px)}to{transform:translateY(-2.5px)}}
   .hero-eyebrow{margin-bottom:2rem;color:var(--bone-dim)}
@@ -817,10 +824,12 @@
   </svg>
 
   <div class="hero-inner">
+    <div class="mark-ring">
     <svg class="mark" viewBox="22 32 186 150" xmlns="http://www.w3.org/2000/svg" aria-label="ATABAY Luna Llena mark">
       <path d="M 204 150 C 184 142 178 130 176 112 A 76 76 0 1 0 42 161 A 16 16 0 0 0 66 140 A 44 44 0 1 1 144 112 C 148 130 168 142 204 150 Z" fill="#EDE6D6"/>
       <circle class="moon" cx="102" cy="118" r="15" fill="#D8B98A"/>
     </svg>
+    </div>
 
     <p class="hero-eyebrow mono" style="font-size:.6rem">Sosúa · Puerto Plata · Dominican Republic — North Coast</p>
 
