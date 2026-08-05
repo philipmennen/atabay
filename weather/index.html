@@ -967,6 +967,19 @@
     border-top:1px solid rgba(11,27,38,.14);padding-top:1rem;
   }
   @media(max-width:560px){.hc-row{grid-template-columns:1fr;gap:.4rem}.hc-val{text-align:left}}
+  .g-hero{min-height:100svh;justify-content:flex-end;padding-bottom:clamp(3rem,7vh,5.5rem)}
+  .g-hero-bg img{opacity:.78}
+  .g-hero-bg::after{
+    background:linear-gradient(180deg,rgba(7,18,25,.62) 0%,rgba(7,18,25,.18) 34%,rgba(11,27,38,.55) 74%,var(--ink) 100%);
+  }
+  .g-hero h1{font-size:clamp(2.1rem,5.6vw,4.2rem);max-width:14em}
+  .g-hero p.g-sub{color:rgba(237,230,214,.86);text-shadow:0 2px 16px rgba(7,18,25,.8)}
+  .g-hero .g-label{text-shadow:0 2px 12px rgba(7,18,25,.8)}
+  .hero-scroll{
+    position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:3;
+    font-family:var(--mono);font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;
+    color:rgba(237,230,214,.5);
+  }
 </style>
 </head>
 <body class="guide">
@@ -1009,10 +1022,11 @@
 </header>
 
 <section class="g-hero">
-  <div class="g-hero-bg" aria-hidden="true"><img src="../assets/hero-wave-v3.jpg" alt=""></div>
+  <div class="g-hero-bg" aria-hidden="true"><img src="../assets/storm-swell.jpg" srcset="../assets/storm-swell-sm.jpg 1700w, ../assets/storm-swell.jpg 3400w" sizes="100vw" alt="Heavy groundswell rolling into the north coast, the shoreline intact" fetchpriority="high"></div>
   <p class="g-label" style="color:var(--gold)">Weather &amp; storms</p>
   <h1>Hurricanes on the north coast</h1>
   <p class="g-sub">The question every Caribbean buyer has. Answered with the actual landfall record of the last 173 years — including the parts that are not flattering.</p>
+  <span class="hero-scroll" aria-hidden="true">Scroll</span>
 </section>
 
 <article class="g-wrap">
