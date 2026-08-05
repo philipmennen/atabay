@@ -305,18 +305,24 @@
   .wave-band{position:relative;margin:0;background:var(--ink-deep);overflow:hidden}
   .wave-band img{width:100%;height:auto;display:block}
   .wave-band::after{
-    content:"";position:absolute;left:0;right:0;bottom:0;height:52%;pointer-events:none;
-    background:linear-gradient(180deg,rgba(7,18,25,0) 0%,rgba(7,18,25,.5) 55%,rgba(7,18,25,.78) 100%);
+    content:"";position:absolute;left:0;right:0;bottom:0;height:62%;pointer-events:none;
+    background:linear-gradient(180deg,rgba(7,18,25,0) 0%,rgba(7,18,25,.42) 40%,rgba(7,18,25,.72) 72%,rgba(7,18,25,.88) 100%);
   }
   .wave-band figcaption{
     position:absolute;left:0;right:0;bottom:0;z-index:2;
-    padding:0 clamp(1.4rem,6vw,6rem) clamp(1.6rem,4vw,3rem);
-    font-family:var(--mono);font-size:clamp(.56rem,1.05vw,.68rem);
-    letter-spacing:.2em;text-transform:uppercase;
-    color:rgba(237,230,214,.9);line-height:2.1;max-width:52em;
-    text-shadow:0 2px 14px rgba(7,18,25,.85);
+    padding:0 clamp(1.4rem,6vw,6rem) clamp(2rem,5vw,4rem);
+    font-family:var(--mono);font-size:clamp(.68rem,1.35vw,.88rem);
+    letter-spacing:.16em;text-transform:uppercase;
+    color:rgba(237,230,214,.94);line-height:2;max-width:46em;
+    text-shadow:0 2px 18px rgba(7,18,25,.9), 0 0 60px rgba(7,18,25,.7);
   }
-  .wave-band figcaption b{color:var(--gold);font-weight:500;display:block}
+  .wave-band figcaption b{
+    display:block;margin-bottom:.7em;
+    font-family:var(--sans);font-stretch:115%;font-weight:560;
+    font-size:clamp(1.15rem,2.6vw,2rem);line-height:1.15;
+    letter-spacing:.02em;text-transform:uppercase;color:var(--gold);
+    text-shadow:0 2px 20px rgba(7,18,25,.9), 0 0 70px rgba(216,185,138,.2);
+  }
   @media(max-width:640px){
     .wave-band figcaption{position:static;padding:1.2rem 1.4rem 1.8rem;text-shadow:none;color:var(--bone-dim)}
     .wave-band::after{display:none}
