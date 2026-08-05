@@ -240,13 +240,13 @@
   .hero .mark{transition:filter 2.4s cubic-bezier(.33,0,.25,1),transform 2.4s cubic-bezier(.33,0,.25,1)}
   .mark-ring:hover .mark{transition-duration:2.8s;
     filter:drop-shadow(0 0 26px rgba(216,185,138,.55)) drop-shadow(0 0 70px rgba(216,185,138,.3));
-    transform:scale(1.04);
+    transform:scale(1.13);
   }
   .hero .mark .moon{transition:filter 2.4s cubic-bezier(.33,0,.25,1)}
   .mark-ring:hover .mark .moon{transition-duration:2.8s;filter:drop-shadow(0 0 12px rgba(216,185,138,.9))}
   @media(prefers-reduced-motion:reduce){.mark-ring:hover .mark{transform:none}}
-  h1.wordmark{cursor:default;transition:text-shadow 2.4s cubic-bezier(.33,0,.25,1),color 2.4s cubic-bezier(.33,0,.25,1)}
-  h1.wordmark:hover{transition-duration:2.8s;
+  h1.wordmark{cursor:default;display:inline-block;transform-origin:center;transition:text-shadow 2.4s cubic-bezier(.33,0,.25,1),color 2.4s cubic-bezier(.33,0,.25,1),transform 2.4s cubic-bezier(.33,0,.25,1)}
+  h1.wordmark:hover{transition-duration:2.8s;transform:scale(1.045);
     color:#F6F1E4;
     text-shadow:0 0 14px rgba(216,185,138,.55), 0 0 34px rgba(216,185,138,.26);
   }
