@@ -304,6 +304,20 @@
 
   /* ---------- wave band under the hero ---------- */
   .wave-band{position:relative;margin:0;background:var(--ink-deep);overflow:hidden}
+  .wave-band .strip{
+    position:absolute;top:0;left:0;right:0;z-index:3;
+    background:rgba(7,18,25,.5);backdrop-filter:blur(10px);
+    border-top:none;border-bottom:1px solid rgba(237,230,214,.14);
+  }
+  .wave-band .strip div{border-right-color:rgba(237,230,214,.14);padding:1.5rem 1.2rem}
+  .wave-band::before{
+    content:"";position:absolute;left:0;right:0;top:0;height:34%;pointer-events:none;z-index:1;
+    background:linear-gradient(180deg,rgba(7,18,25,.55) 0%,rgba(7,18,25,0) 100%);
+  }
+  @media(max-width:700px){
+    .wave-band .strip{position:static;backdrop-filter:none;background:var(--ink-deep)}
+    .wave-band::before{display:none}
+  }
   .wave-band img{width:100%;height:auto;display:block}
   .wave-band::after{
     content:"";position:absolute;left:0;right:0;bottom:0;height:52%;pointer-events:none;
@@ -1045,9 +1059,6 @@
 </section>
 
 
-<!-- ================= NUMBERS ================= -->
-<div class="strip reveal">
-  <div><b><span class="num" data-count="3">0</span></b><span>Parcelas frente al mar</span></div>
   <div><b><span class="num" data-count="2765">0</span> m²</b><span>Cada una — titulada</span></div>
   <div><b><span class="num" data-count="9853">0</span> m²</b><span>Como paquete completo</span></div>
   <div><b><span class="num" data-count="5">0</span>–<span class="num" data-count="10">0</span> min</b><span>A pie hasta las olas</span></div>
@@ -1056,6 +1067,8 @@
 
 <figure class="wave-band reveal">
   <img src="../assets/hero-wave.jpg" alt="La ola que rompe justo frente al terreno de ATABAY" loading="lazy">
+  <div class="strip reveal">
+  <div><b><span class="num" data-count="3">0</span></b><span>Parcelas frente al mar</span></div>
   <figcaption><b>Esta es la ola que rompe frente al terreno.</b>
   No es material de archivo ni un spot parecido más allá — es esta, vista desde la propiedad.</figcaption>
 </figure>
