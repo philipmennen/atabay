@@ -305,12 +305,23 @@
   /* ---------- wave band under the hero ---------- */
   .wave-band{position:relative;margin:0;background:var(--ink-deep);overflow:hidden}
   .wave-band img{width:100%;height:auto;display:block}
-  .wave-band figcaption{
-    padding:1.5rem clamp(1.4rem,6vw,6rem) 2.2rem;
-    font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--bone-dim);line-height:2.1;max-width:60em;
+  .wave-band::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:52%;pointer-events:none;
+    background:linear-gradient(180deg,rgba(7,18,25,0) 0%,rgba(7,18,25,.5) 55%,rgba(7,18,25,.78) 100%);
   }
-  .wave-band figcaption b{color:var(--gold);font-weight:500}
+  .wave-band figcaption{
+    position:absolute;left:0;right:0;bottom:0;z-index:2;
+    padding:0 clamp(1.4rem,6vw,6rem) clamp(1.6rem,4vw,3rem);
+    font-family:var(--mono);font-size:clamp(.56rem,1.05vw,.68rem);
+    letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(237,230,214,.9);line-height:2.1;max-width:52em;
+    text-shadow:0 2px 14px rgba(7,18,25,.85);
+  }
+  .wave-band figcaption b{color:var(--gold);font-weight:500;display:block}
+  @media(max-width:640px){
+    .wave-band figcaption{position:static;padding:1.2rem 1.4rem 1.8rem;text-shadow:none}
+    .wave-band::after{display:none}
+  }
 
   /* ---------- numbers strip ---------- */
   .strip{
