@@ -378,6 +378,19 @@
   }
   .lot li b{color:var(--bone);font-weight:500}
   .lot .tick{color:var(--gold)}
+  .price-tag{color:var(--gold) !important;font-weight:600 !important;letter-spacing:.04em}
+  .pkg-line{
+    position:relative;z-index:2;margin-top:2rem;max-width:44em;
+    font-family:var(--mono);font-size:clamp(.62rem,1.15vw,.76rem);
+    letter-spacing:.16em;text-transform:uppercase;line-height:2;
+    color:rgba(237,230,214,.86);
+    text-shadow:0 2px 16px rgba(7,18,25,.85);
+  }
+  .pkg-line b{
+    display:block;margin-bottom:.5em;color:var(--gold);font-weight:500;
+    font-size:clamp(.72rem,1.3vw,.9rem);letter-spacing:.14em;
+  }
+
   .land-note{
     margin-top:clamp(2.4rem,5vw,3.4rem);max-width:46em;
     font-family:var(--mono);font-size:clamp(.68rem,1.35vw,.88rem);
@@ -1143,6 +1156,7 @@
         <li>Frente <b class="tick">al mar</b></li>
         <li>Título <b class="tick">✓ Registrado</b></li>
         <li>Estado <b>Disponible</b></li>
+        <li>Precio <b class="price-tag">US$ 899,000</b></li>
       </ul>
     </div>
     <div class="lot">
@@ -1152,6 +1166,7 @@
         <li>Frente <b class="tick">al mar</b></li>
         <li>Título <b class="tick">✓ Registrado</b></li>
         <li>Estado <b>Disponible</b></li>
+        <li>Precio <b class="price-tag">US$ 899,000</b></li>
       </ul>
     </div>
     <div class="lot">
@@ -1161,11 +1176,15 @@
         <li>Frente <b class="tick">al mar</b></li>
         <li>Título <b class="tick">✓ Registrado</b></li>
         <li>Estado <b>Disponible</b></li>
+        <li>Precio <b class="price-tag">US$ 899,000</b></li>
       </ul>
     </div>
   </div>
 
-  <p class="land-note reveal"><b>Tres parcelas paralelas, cada una desde la calle residencial hasta el agua.</b>
+    <p class="pkg-line reveal"><b>US$ 325 / m² por separado — US$ 250 / m² el paquete completo.</b>
+  Las tres parcelas más la cuarta: 9,853 m² por US$ 2,463,250.</p>
+
+<p class="land-note reveal"><b>Tres parcelas paralelas, cada una desde la calle residencial hasta el agua.</b>
   Una cuarta parcela (1,558 m², título en trámite) completa el paquete — 9,853 m² de costa norte, en una sola pieza.
   Dentro de Sol de Plata: cerrado, tranquilo, ya construido con villas — no un proyecto sobre papel.</p>
 </section>

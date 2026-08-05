@@ -377,6 +377,19 @@
   }
   .lot li b{color:var(--bone);font-weight:500}
   .lot .tick{color:var(--gold)}
+  .price-tag{color:var(--gold) !important;font-weight:600 !important;letter-spacing:.04em}
+  .pkg-line{
+    position:relative;z-index:2;margin-top:2rem;max-width:44em;
+    font-family:var(--mono);font-size:clamp(.62rem,1.15vw,.76rem);
+    letter-spacing:.16em;text-transform:uppercase;line-height:2;
+    color:rgba(237,230,214,.86);
+    text-shadow:0 2px 16px rgba(7,18,25,.85);
+  }
+  .pkg-line b{
+    display:block;margin-bottom:.5em;color:var(--gold);font-weight:500;
+    font-size:clamp(.72rem,1.3vw,.9rem);letter-spacing:.14em;
+  }
+
   .land-note{
     margin-top:clamp(2.4rem,5vw,3.4rem);max-width:46em;
     font-family:var(--mono);font-size:clamp(.68rem,1.35vw,.88rem);
@@ -1142,6 +1155,7 @@
         <li>Frontline <b class="tick">ocean</b></li>
         <li>Title <b class="tick">✓ Registered</b></li>
         <li>Status <b>Available</b></li>
+        <li>Price <b class="price-tag">US$ 899,000</b></li>
       </ul>
     </div>
     <div class="lot">
@@ -1151,6 +1165,7 @@
         <li>Frontline <b class="tick">ocean</b></li>
         <li>Title <b class="tick">✓ Registered</b></li>
         <li>Status <b>Available</b></li>
+        <li>Price <b class="price-tag">US$ 899,000</b></li>
       </ul>
     </div>
     <div class="lot">
@@ -1160,11 +1175,15 @@
         <li>Frontline <b class="tick">ocean</b></li>
         <li>Title <b class="tick">✓ Registered</b></li>
         <li>Status <b>Available</b></li>
+        <li>Price <b class="price-tag">US$ 899,000</b></li>
       </ul>
     </div>
   </div>
 
-  <p class="land-note reveal"><b>Three parallel lots, each running from the residential road to the water.</b>
+    <p class="pkg-line reveal"><b>US$ 325 / m² individually — US$ 250 / m² for the whole package.</b>
+  All three lots plus the fourth parcel: 9,853 m² for US$ 2,463,250.</p>
+
+<p class="land-note reveal"><b>Three parallel lots, each running from the residential road to the water.</b>
   A fourth parcel (1,558 m², title in process) completes the package — 9,853 m² of the north coast, in one piece.
   Inside Sol de Plata: gated, quiet, built out with villas — not a project on paper.</p>
 </section>

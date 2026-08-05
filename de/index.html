@@ -378,6 +378,19 @@
   }
   .lot li b{color:var(--bone);font-weight:500}
   .lot .tick{color:var(--gold)}
+  .price-tag{color:var(--gold) !important;font-weight:600 !important;letter-spacing:.04em}
+  .pkg-line{
+    position:relative;z-index:2;margin-top:2rem;max-width:44em;
+    font-family:var(--mono);font-size:clamp(.62rem,1.15vw,.76rem);
+    letter-spacing:.16em;text-transform:uppercase;line-height:2;
+    color:rgba(237,230,214,.86);
+    text-shadow:0 2px 16px rgba(7,18,25,.85);
+  }
+  .pkg-line b{
+    display:block;margin-bottom:.5em;color:var(--gold);font-weight:500;
+    font-size:clamp(.72rem,1.3vw,.9rem);letter-spacing:.14em;
+  }
+
   .land-note{
     margin-top:clamp(2.4rem,5vw,3.4rem);max-width:46em;
     font-family:var(--mono);font-size:clamp(.68rem,1.35vw,.88rem);
@@ -1143,6 +1156,7 @@
         <li>Lage <b class="tick">Ozeanfront</b></li>
         <li>Titel <b class="tick">✓ Eingetragen</b></li>
         <li>Status <b>Verfügbar</b></li>
+        <li>Preis <b class="price-tag">899.000 US$</b></li>
       </ul>
     </div>
     <div class="lot">
@@ -1152,6 +1166,7 @@
         <li>Lage <b class="tick">Ozeanfront</b></li>
         <li>Titel <b class="tick">✓ Eingetragen</b></li>
         <li>Status <b>Verfügbar</b></li>
+        <li>Preis <b class="price-tag">899.000 US$</b></li>
       </ul>
     </div>
     <div class="lot">
@@ -1161,11 +1176,15 @@
         <li>Lage <b class="tick">Ozeanfront</b></li>
         <li>Titel <b class="tick">✓ Eingetragen</b></li>
         <li>Status <b>Verfügbar</b></li>
+        <li>Preis <b class="price-tag">899.000 US$</b></li>
       </ul>
     </div>
   </div>
 
-  <p class="land-note reveal"><b>Drei parallele Grundstücke, jedes reicht von der Wohnstraße bis ans Wasser.</b>
+    <p class="pkg-line reveal"><b>325 US$ / m² einzeln — 250 US$ / m² für das Gesamtpaket.</b>
+  Alle drei Grundstücke plus die vierte Parzelle: 9.853 m² für 2.463.250 US$.</p>
+
+<p class="land-note reveal"><b>Drei parallele Grundstücke, jedes reicht von der Wohnstraße bis ans Wasser.</b>
   Eine vierte Parzelle (1.558 m², Titel in Bearbeitung) vervollständigt das Paket — 9.853 m² Nordküste, in einem Stück.
   Innerhalb von Sol de Plata: bewacht, ruhig, mit Villen bebaut — kein Projekt auf dem Papier.</p>
 </section>
