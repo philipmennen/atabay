@@ -304,8 +304,7 @@
 
   /* ---------- wave band under the hero ---------- */
   .wave-band{position:relative;margin:0;background:var(--ink-deep);overflow:hidden}
-  @media(max-width:700px){
-    .wave-band img{width:100%;height:auto;display:block}
+  .wave-band img{width:100%;height:auto;display:block}
   .wave-band::after{
     content:"";position:absolute;left:0;right:0;bottom:0;height:52%;pointer-events:none;
     background:linear-gradient(180deg,rgba(7,18,25,0) 0%,rgba(7,18,25,.5) 55%,rgba(7,18,25,.78) 100%);
@@ -320,7 +319,7 @@
   }
   .wave-band figcaption b{color:var(--gold);font-weight:500;display:block}
   @media(max-width:640px){
-    .wave-band figcaption{position:static;padding:1.2rem 1.4rem 1.8rem;text-shadow:none}
+    .wave-band figcaption{position:static;padding:1.2rem 1.4rem 1.8rem;text-shadow:none;color:var(--bone-dim)}
     .wave-band::after{display:none}
   }
 
@@ -1086,6 +1085,11 @@
 <!-- ================= NUMBERS ================= -->
 <div class="strip reveal">
   <div><b><span class="num" data-count="3">0</span></b><span>Oceanfront-Grundstücke</span></div>
+  <div><b><span class="num" data-count="2765">0</span> m²</b><span>Jedes — mit Titel</span></div>
+  <div><b><span class="num" data-count="9853">0</span> m²</b><span>Als Gesamtpaket</span></div>
+  <div><b><span class="num" data-count="5">0</span>–<span class="num" data-count="10">0</span> Min</b><span>Fußweg zu den Breaks</span></div>
+  <div><b><span class="num" data-count="0">0</span></b><span>Crowd</span></div>
+</div>
 
 <figure class="wave-band reveal">
   <img src="../assets/hero-wave.jpg" alt="Die Welle, die direkt vor dem ATABAY-Land bricht" loading="lazy">
