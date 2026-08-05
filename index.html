@@ -553,6 +553,15 @@
     color:rgba(11,27,38,.5);
   }
 
+  .atabey-glyph{
+    position:absolute;right:clamp(1.2rem,4vw,3.5rem);bottom:clamp(2rem,6vh,4.5rem);
+    width:clamp(120px,13vw,190px);height:auto;z-index:0;pointer-events:none;
+    color:var(--gold-deep);opacity:.17;
+  }
+  .facts{position:relative}
+  .facts .sec-head,.facts .facts-grid{position:relative;z-index:2}
+  @media(max-width:1080px){.atabey-glyph{display:none}}
+
   /* ---------- contact ---------- */
   .contact{text-align:center;padding-bottom:8rem;overflow:hidden}
   .contact-bg{position:absolute;inset:0;z-index:0}
@@ -1260,6 +1269,34 @@
 
 <!-- ================= FACTS ================= -->
 <section id="facts" class="facts">
+  <svg class="atabey-glyph" viewBox="0 0 200 215" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- headdress: notched arc -->
+      <path d="M 27 94 A 73 73 0 0 1 173 94" stroke-width="2.6"/>
+      <path d="M 51 94 A 49 49 0 0 1 149 94" stroke-width="2.6"/>
+      <path d="M57 71 L36 59 M75 52 L63 32 M100 45 L100 21 M125 52 L137 32 M143 71 L164 59" stroke-width="2.6"/>
+      <!-- headdress tips -->
+      <path d="M27 94 C28 115 31 128 37 135 C42 126 47 112 51 94"/>
+      <path d="M173 94 C172 115 169 128 163 135 C158 126 153 112 149 94"/>
+      <!-- face -->
+      <ellipse cx="100" cy="72" rx="25" ry="29"/>
+      <path d="M83 60 L100 68 L117 60" stroke-width="2.6"/>
+      <path d="M84 74 L95 76 M105 76 L116 74" stroke-width="2.6"/>
+      <path d="M91 89 L109 89" stroke-width="2.6"/>
+      <!-- torso -->
+      <path d="M100 101 L137 127 L100 167 L63 127 Z"/>
+      <path d="M100 129 L100 148"/>
+      <circle cx="100" cy="155" r="6.5"/>
+      <!-- legs -->
+      <path d="M68 128 C38 143 18 172 26 193 C34 213 58 211 72 195 C84 181 88 157 84 141"/>
+      <path d="M132 128 C162 143 182 172 174 193 C166 213 142 211 128 195 C116 181 112 157 116 141"/>
+      <path d="M78 152 C64 164 53 180 55 193" stroke-width="2.4"/>
+      <path d="M122 152 C136 164 147 180 145 193" stroke-width="2.4"/>
+      <!-- feet -->
+      <path d="M26 193 C22 203 28 209 38 206"/>
+      <path d="M174 193 C178 203 172 209 162 206"/>
+    </g>
+  </svg>
   <div class="sec-head reveal">
     <span class="idx">06</span>
     <h2 class="display">On the record</h2>
