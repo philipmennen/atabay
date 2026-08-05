@@ -23,6 +23,23 @@
   </url>
   <url>
     <loc>https://atabay.land/guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atabay.land/guide/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://atabay.land/de/guide/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://atabay.land/es/guide/"/>
     <changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://atabay.land/de/guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atabay.land/guide/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://atabay.land/de/guide/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://atabay.land/es/guide/"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atabay.land/es/guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://atabay.land/guide/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://atabay.land/de/guide/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://atabay.land/es/guide/"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority>
   </url>
 </urlset>
