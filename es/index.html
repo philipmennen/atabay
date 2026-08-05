@@ -612,6 +612,37 @@
   .facts .sec-head,.facts .facts-grid{position:relative;z-index:2}
   @media(max-width:1080px){.atabey-glyph{display:none}}
 
+  /* ---------- pricing ---------- */
+  .price-box{margin-top:2.6rem;border-top:1px solid rgba(11,27,38,.16)}
+  .price-label{color:var(--gold-deep);margin:1.6rem 0 1.2rem}
+  .price-opt{padding:1.3rem 0;border-bottom:1px dashed rgba(11,27,38,.18)}
+  .price-opt:last-child{border-bottom:none}
+  .po-head{
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;
+    color:rgba(11,27,38,.6);margin-bottom:.7rem;
+  }
+  .po-size{
+    font-family:var(--sans);font-stretch:112%;font-weight:560;font-size:1.15rem;color:var(--ink);
+    display:flex;flex-direction:column;gap:.25rem;margin-bottom:.7rem;
+  }
+  .po-size span{
+    font-family:var(--sans);font-stretch:100%;font-weight:340;font-size:.82rem;
+    color:rgba(11,27,38,.6);line-height:1.5;
+  }
+  .po-rate{
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;
+    color:rgba(11,27,38,.62);margin-bottom:.35rem;
+  }
+  .po-total{
+    font-family:var(--sans);font-stretch:118%;font-weight:600;
+    font-size:clamp(1.5rem,3vw,2.1rem);color:var(--gold-deep);letter-spacing:.01em;
+    font-variant-numeric:tabular-nums;
+  }
+  .po-total em{
+    font-style:normal;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;
+    text-transform:uppercase;color:rgba(11,27,38,.5);margin-left:.5em;
+  }
+
   /* ---------- contact ---------- */
   .contact{text-align:center;padding-bottom:8rem;overflow:hidden}
   .contact-bg{position:absolute;inset:0;z-index:0}
@@ -1433,8 +1464,23 @@
         <tr><td>Paquete</td><td>+ 1,558 m² parcela · título en trámite</td></tr>
         <tr><td>Comunidad</td><td>Sol de Plata — cerrado, administrado por HOA</td></tr>
         <tr><td>Uso</td><td>Residencial unifamiliar</td></tr>
-        <tr><td>Precio</td><td>A solicitud — un contacto directo</td></tr>
+        <tr><td>Precio</td><td>Desde US$ 899,000 por parcela · US$ 2,463,250 el paquete completo</td></tr>
       </table>
+      <div class="price-box reveal">
+        <p class="g-label price-label">Precios</p>
+        <div class="price-opt">
+          <p class="po-head">Opción A · El paquete completo</p>
+          <p class="po-size">9,853 m²<span>tres parcelas tituladas que suman 8,295 m² + una parcela de 1,558 m² con título en trámite</span></p>
+          <p class="po-rate">US$ 250 / m²</p>
+          <p class="po-total">US$ 2,463,250</p>
+        </div>
+        <div class="price-opt">
+          <p class="po-head">Opción B · Una sola parcela</p>
+          <p class="po-size">2,765 m²<span>tres parcelas tituladas disponibles, todas del mismo tamaño</span></p>
+          <p class="po-rate">US$ 325 / m²</p>
+          <p class="po-total">US$ 899,000 <em>por parcela</em></p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
