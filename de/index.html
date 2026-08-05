@@ -302,6 +302,16 @@
   .sec-head .idx{font-family:var(--mono);font-size:.66rem;letter-spacing:.3em;color:var(--gold-deep)}
   .rule{flex:1;height:1px;background:var(--hairline);min-width:60px}
 
+  /* ---------- wave band under the hero ---------- */
+  .wave-band{position:relative;margin:0;background:var(--ink-deep);overflow:hidden}
+  .wave-band img{width:100%;height:auto;display:block}
+  .wave-band figcaption{
+    padding:1.5rem clamp(1.4rem,6vw,6rem) 2.2rem;
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--bone-dim);line-height:2.1;max-width:60em;
+  }
+  .wave-band figcaption b{color:var(--gold);font-weight:500}
+
   /* ---------- numbers strip ---------- */
   .strip{
     border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
@@ -1023,6 +1033,12 @@
   </div>
 </section>
 
+<figure class="wave-band reveal">
+  <img src="../assets/hero-wave.jpg" alt="Die Welle, die direkt vor dem ATABAY-Land bricht" loading="lazy">
+  <figcaption><b>Das ist die Welle, die vor dem Land bricht.</b>
+  Kein Archivmaterial, kein ähnlicher Spot weiter unten an der Küste — diese hier, vom Grundstück aus.</figcaption>
+</figure>
+
 <!-- ================= NUMBERS ================= -->
 <div class="strip reveal">
   <div><b><span class="num" data-count="3">0</span></b><span>Oceanfront-Grundstücke</span></div>
@@ -1095,14 +1111,16 @@
     <div class="reveal">
       <p class="perla-lead">Sol de Plata liegt in Perla Marina, einem ruhigen Küstenabschnitt
       zwischen Sosúa und Cabarete. Bewacht, geschlossen und längst bebaut —
-      Villen, asphaltierte Straßen, Licht bei Nacht. Kein Rendering. Eine Nachbarschaft, die funktioniert.</p>
+      Villen, asphaltierte Straßen, Licht bei Nacht. Nichts hier ist ein Versprechen für
+      später — es ist eine Nachbarschaft, die längst funktioniert.</p>
       <p class="perla-sub">Die Regeln, die es ruhig halten, stehen schriftlich fest: Einfamilienhäuser,
       höchstens zwei Geschosse, genehmigte Pläne vor dem ersten Spatenstich. Details unter
       <a href="#facts">Titel &amp; Fakten</a>.</p>
     </div>
     <ul class="perla-list reveal">
-      <li><b>Bewacht</b><span>Kontrollierte Zufahrt, 24 h Sicherheit</span></li>
-      <li><b>Bebaut</b><span>Bestehende Villen — kein leeres Versprechen, keine Phase eins</span></li>
+      <li><b>Bewacht</b><span>Kontrollierte Zufahrt, 24 h Sicherheit, keine Vorfälle in der Geschichte</span></li>
+      <li><b>Gewachsen</b><span>Längst bebaut, mit etablierten Villen — keine Phase eins</span></li>
+      <li><b>Nur Wohnen</b><span>Strenge Regeln: zweigeschossige Villen, kein Gewerbe</span></li>
       <li><b>Gepflegt</b><span>HOA-verwaltet: Straßen, Beleuchtung, Grünflächen, Club</span></li>
       <li><b>Angebunden</b><span>Sosúa &amp; Cabarete wenige Minuten · Encuentro 7 Min mit dem Auto</span></li>
     </ul>
@@ -1116,9 +1134,10 @@
       <div>
         <p class="label">Im Wasser · morgens</p>
         <h3>Surfen vor der Tür</h3>
-        <p>Die Breaks vor der Haustür sind der Grund, warum ATABAY existiert — fünf bis zehn
-        Minuten zu Fuß, das erste Licht für dich allein. Wenn du eine Welle mit Gesellschaft
-        willst: Encuentro läuft ganzjährig, sieben Minuten mit dem Auto.</p>
+        <p>Fünf bis zehn Minuten zu Fuß, und du stehst vor Wellen, die die meisten nie finden —
+        das erste Licht für dich allein. Es ist nicht der einzige Grund, dieses Land zu
+        wollen, aber ein seltener. Wenn du eine Welle mit Gesellschaft willst: Encuentro
+        läuft ganzjährig, sieben Minuten mit dem Auto.</p>
       </div>
       <figure class="media r43 pm-media">
         <img src="../assets/pm-surf.jpg" alt="Surfer on a clean wave off the north coast" loading="lazy">
@@ -1142,8 +1161,8 @@
       <div>
         <p class="label">Zu Pferd</p>
         <h3>Die Küste im Schritttempo</h3>
-        <p>Ställe rund um Perla Marina reiten den Strand bei Ebbe — fester Sand,
-        kein Verkehr, grüne Hügel im Rücken. Eine Stunde auf dem Pferd verschiebt,
+        <p>Bei Ebbe kommen die Pferde aus nahegelegenen Ställen an den Strand — fester Sand,
+        kein Verkehr, grüne Hügel im Rücken. Eine Stunde im Sattel verschiebt,
         was „Strandlage“ bedeutet.</p>
       </div>
       <figure class="media r43 pm-media">
@@ -1170,8 +1189,9 @@
         <h3>Tische in der Nähe</h3>
         <p>Der nächste Tisch ist barfuß erreichbar:
         <a href="https://naturacabana.com" target="_blank" rel="noopener">Natura Cabana</a>,
-        das Eco-Boutique-Versteck an Perla Marinas Ufer — Steinbungalows unter Palmdach,
-        zwei Open-Air-Restaurants, ein Spa und Yoga am Morgen direkt am Wasser.</p>
+        ein Eco-Boutique-Hotel an Perla Marinas Ufer — Steinbungalows unter Palmdach,
+        zwei Open-Air-Restaurants, ein Spa und Yoga am Morgen direkt am Wasser.
+        Das Hideaway liegt ebenfalls in der Nähe.</p>
         <p>Darüber hinaus reihen sich Restaurants und Beach Bars von Sosúa bis
         Cabarete — heute frischer Fisch, morgen aus dem Holzofen.
         Die Ruhe ist das, wohin du zurückkommst.</p>
@@ -1313,8 +1333,10 @@
       <p class="story-wordmark" aria-hidden="true">ATABAY</p>
       <p class="keyline">Benannt nach der Göttin, die diese Küste bewachte.
       <span>Du kannst sie auf der Karte nur nicht sehen.</span></p>
-      <p>Der Mond in unserer Marke ist keine Dekoration. Der Mond bewegt die Gezeiten,
-      und die Gezeiten entscheiden, wann die Spots anspringen. Sie ist da drin — nur nicht ausgesprochen.</p>
+      <p>Sieh dir die Marke noch einmal an, dann erkennst du, was sie zeigt: eine Welle, mitten
+      im Barrel, und darin ein Vollmond. Dieser Mond ist keine Dekoration. Der Mond bewegt
+      die Gezeiten, und die Gezeiten entscheiden, wann die Spots anspringen. Sie ist da
+      drin — nur nie ausgesprochen.</p>
       <p class="label moon-line">Der Mond kennt den Weg.</p>
     </div>
   </div>
@@ -1407,7 +1429,7 @@
   </svg>
   <span class="stamp contact-stamp" aria-hidden="true">Sin mapa.</span>
   <img class="portrait reveal" src="../assets/portrait.jpg" alt="Philip — surfing the north coast">
-  <p class="label reveal">Eine Person. Keine Zwischenhändler. Surft selbst.</p>
+  <p class="label reveal">Ein direkter Ansprechpartner.</p>
   <h2 class="reveal">Sprich mit Philip</h2>
   <p class="reveal">Fragen, Dokumente, ein Gang über das Land —
   ein direkter Kontakt, von der ersten Nachricht bis zum Abschluss. Keine Formulare, keine Funnels.</p>

@@ -301,6 +301,16 @@
   .sec-head .idx{font-family:var(--mono);font-size:.66rem;letter-spacing:.3em;color:var(--gold-deep)}
   .rule{flex:1;height:1px;background:var(--hairline);min-width:60px}
 
+  /* ---------- wave band under the hero ---------- */
+  .wave-band{position:relative;margin:0;background:var(--ink-deep);overflow:hidden}
+  .wave-band img{width:100%;height:auto;display:block}
+  .wave-band figcaption{
+    padding:1.5rem clamp(1.4rem,6vw,6rem) 2.2rem;
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--bone-dim);line-height:2.1;max-width:60em;
+  }
+  .wave-band figcaption b{color:var(--gold);font-weight:500}
+
   /* ---------- numbers strip ---------- */
   .strip{
     border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
@@ -1022,6 +1032,12 @@
   </div>
 </section>
 
+<figure class="wave-band reveal">
+  <img src="assets/hero-wave.jpg" alt="The wave breaking directly in front of the ATABAY land" loading="lazy">
+  <figcaption><b>This is the wave that breaks in front of the land.</b>
+  Not stock footage, not a similar spot down the coast — this one, from the property itself.</figcaption>
+</figure>
+
 <!-- ================= NUMBERS ================= -->
 <div class="strip reveal">
   <div><b><span class="num" data-count="3">0</span></b><span>Oceanfront lots</span></div>
@@ -1094,14 +1110,16 @@
     <div class="reveal">
       <p class="perla-lead">Sol de Plata sits inside Perla Marina, a quiet stretch
       of coast between Sosúa and Cabarete. Gated, guarded, and already built out —
-      villas, paved streets, light at night. Not a render. A neighborhood that works.</p>
+      villas, paved streets, light at night. Nothing here is a promise for later —
+      it is a neighbourhood that already works.</p>
       <p class="perla-sub">The rules that keep it quiet are written down: single-family homes,
       two floors at most, plans approved before ground is broken. Details under
       <a href="#facts">Title &amp; Facts</a>.</p>
     </div>
     <ul class="perla-list reveal">
-      <li><b>Gated</b><span>Controlled entrance, 24h security</span></li>
-      <li><b>Built out</b><span>Established villas — no empty promise, no phase one</span></li>
+      <li><b>Gated</b><span>Controlled entrance, 24-hour security, no history of incidents</span></li>
+      <li><b>Mature</b><span>Long since built out with established villas — not a phase one</span></li>
+      <li><b>Residential only</b><span>Strict rules: two-storey villas, no commercial use</span></li>
       <li><b>Maintained</b><span>HOA-managed: streets, lighting, green areas, club</span></li>
       <li><b>Connected</b><span>Sosúa &amp; Cabarete minutes away · Encuentro 7 min by car</span></li>
     </ul>
@@ -1115,9 +1133,10 @@
       <div>
         <p class="label">In the water · mornings</p>
         <h3>Surf at the door</h3>
-        <p>The doorstep breaks are the reason ATABAY exists — five to ten minutes
-        on foot, first light to yourself. When you want a wave with company,
-        Encuentro works year-round, seven minutes by car.</p>
+        <p>Five to ten minutes on foot and you are standing in front of waves most people
+        never find, with the first light to yourself. It is not the only reason to want
+        this land — but it is a rare one. When you want a wave with company, Encuentro
+        works year-round, seven minutes by car.</p>
       </div>
       <figure class="media r43 pm-media">
         <img src="assets/pm-surf.jpg" alt="Surfer on a clean wave off the north coast" loading="lazy">
@@ -1141,9 +1160,9 @@
       <div>
         <p class="label">On horseback</p>
         <h3>The coast at walking pace</h3>
-        <p>Stables around Perla Marina ride the beach at low tide — hard sand,
-        no traffic, green hills behind. An hour on a horse recalibrates
-        what "beachfront" means.</p>
+        <p>Horses come down to the beach at low tide from stables nearby — hard sand,
+        no traffic, green hills behind. An hour in the saddle recalibrates
+        what &ldquo;beachfront&rdquo; means.</p>
       </div>
       <figure class="media r43 pm-media">
         <img src="assets/pm-horses.jpg" alt="Riders on horseback along the beach, surf rolling in" loading="lazy">
@@ -1169,8 +1188,9 @@
         <h3>Tables nearby</h3>
         <p>The closest table is a barefoot walk away:
         <a href="https://naturacabana.com" target="_blank" rel="noopener">Natura Cabana</a>,
-        the eco boutique hideaway on Perla Marina's shore — stone bungalows under thatch,
-        two open-air restaurants, a spa and morning yoga by the water.</p>
+        an eco boutique hotel on Perla Marina&rsquo;s shore — stone bungalows under thatch,
+        two open-air restaurants, a spa and morning yoga by the water. The Hideaway is
+        close by as well.</p>
         <p>Beyond that, restaurants and beach bars string the coast from Sosúa to
         Cabarete — fresh fish one night, wood-fired the next.
         The quiet is what you come home to.</p>
@@ -1312,8 +1332,10 @@
       <p class="story-wordmark" aria-hidden="true">ATABAY</p>
       <p class="keyline">Named after the goddess who guarded this coast.
       <span>You just can't see her on the map.</span></p>
-      <p>The moon in our mark isn't decoration. The moon moves the tides,
-      and the tides decide when the spots turn on. She's in there — just not spelled out.</p>
+      <p>Look at the mark again and you will see what it holds: a wave, caught mid-barrel,
+      with a full moon inside the curl. That moon is not decoration. The moon moves the
+      tides, and the tides decide when the spots turn on. She is in there — just never
+      spelled out.</p>
       <p class="label moon-line">The moon knows the way.</p>
     </div>
   </div>
@@ -1406,7 +1428,7 @@
   </svg>
   <span class="stamp contact-stamp" aria-hidden="true">Sin mapa.</span>
   <img class="portrait reveal" src="assets/portrait.jpg" alt="Philip — surfing the north coast">
-  <p class="label reveal">One person. No middlemen. Loves surfing.</p>
+  <p class="label reveal">One direct contact.</p>
   <h2 class="reveal">Talk to Philip</h2>
   <p class="reveal">Questions, documents, a walk on the land —
   one direct contact, from first message to closing. No forms, no funnels.</p>

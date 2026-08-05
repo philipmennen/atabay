@@ -302,6 +302,16 @@
   .sec-head .idx{font-family:var(--mono);font-size:.66rem;letter-spacing:.3em;color:var(--gold-deep)}
   .rule{flex:1;height:1px;background:var(--hairline);min-width:60px}
 
+  /* ---------- wave band under the hero ---------- */
+  .wave-band{position:relative;margin:0;background:var(--ink-deep);overflow:hidden}
+  .wave-band img{width:100%;height:auto;display:block}
+  .wave-band figcaption{
+    padding:1.5rem clamp(1.4rem,6vw,6rem) 2.2rem;
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--bone-dim);line-height:2.1;max-width:60em;
+  }
+  .wave-band figcaption b{color:var(--gold);font-weight:500}
+
   /* ---------- numbers strip ---------- */
   .strip{
     border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
@@ -1023,6 +1033,12 @@
   </div>
 </section>
 
+<figure class="wave-band reveal">
+  <img src="../assets/hero-wave.jpg" alt="La ola que rompe justo frente al terreno de ATABAY" loading="lazy">
+  <figcaption><b>Esta es la ola que rompe frente al terreno.</b>
+  No es material de archivo ni un spot parecido más allá — es esta, vista desde la propiedad.</figcaption>
+</figure>
+
 <!-- ================= NUMBERS ================= -->
 <div class="strip reveal">
   <div><b><span class="num" data-count="3">0</span></b><span>Parcelas frente al mar</span></div>
@@ -1095,14 +1111,16 @@
     <div class="reveal">
       <p class="perla-lead">Sol de Plata está dentro de Perla Marina, un tramo tranquilo de costa
       entre Sosúa y Cabarete. Cerrado, vigilado y ya construido —
-      villas, calles asfaltadas, luz de noche. No es un render. Es un vecindario que funciona.</p>
+      villas, calles asfaltadas, luz de noche. Nada aquí es una promesa para más adelante:
+      es un vecindario que ya funciona.</p>
       <p class="perla-sub">Las reglas que lo mantienen tranquilo están por escrito: viviendas unifamiliares,
       dos plantas como máximo, planos aprobados antes de la primera piedra. Detalles en
       <a href="#facts">Títulos y Datos</a>.</p>
     </div>
     <ul class="perla-list reveal">
-      <li><b>Cerrado</b><span>Entrada controlada, seguridad 24 h</span></li>
-      <li><b>Construido</b><span>Villas establecidas — sin promesas vacías, sin fase uno</span></li>
+      <li><b>Cerrado</b><span>Entrada controlada, seguridad 24 h, sin historial de incidentes</span></li>
+      <li><b>Consolidado</b><span>Construido hace tiempo, con villas establecidas — no es una fase uno</span></li>
+      <li><b>Solo residencial</b><span>Reglas estrictas: villas de dos niveles, sin uso comercial</span></li>
       <li><b>Mantenido</b><span>Administrado por la HOA: calles, iluminación, áreas verdes, club</span></li>
       <li><b>Conectado</b><span>Sosúa y Cabarete a minutos · Encuentro a 7 min en carro</span></li>
     </ul>
@@ -1116,9 +1134,10 @@
       <div>
         <p class="label">En el agua · mañanas</p>
         <h3>Surf en la puerta</h3>
-        <p>Las olas frente al terreno son la razón por la que ATABAY existe — de cinco a diez
-        minutos a pie, la primera luz para ti solo. Cuando quieras una ola con compañía,
-        Encuentro funciona todo el año, a siete minutos en carro.</p>
+        <p>Cinco o diez minutos a pie y estás frente a olas que casi nadie encuentra, con la
+        primera luz para ti solo. No es la única razón para querer este terreno, pero sí
+        una rara. Cuando quieras una ola con compañía, Encuentro funciona todo el año,
+        a siete minutos en carro.</p>
       </div>
       <figure class="media r43 pm-media">
         <img src="../assets/pm-surf.jpg" alt="Surfer on a clean wave off the north coast" loading="lazy">
@@ -1142,7 +1161,7 @@
       <div>
         <p class="label">A caballo</p>
         <h3>La costa al paso</h3>
-        <p>Los establos de Perla Marina recorren la playa con marea baja — arena firme,
+        <p>Con marea baja los caballos bajan a la playa desde establos cercanos — arena firme,
         sin tráfico, colinas verdes detrás. Una hora a caballo cambia lo que
         significa «frente al mar».</p>
       </div>
@@ -1170,8 +1189,9 @@
         <h3>Mesas cerca</h3>
         <p>La mesa más cercana está a una caminata descalzo:
         <a href="https://naturacabana.com" target="_blank" rel="noopener">Natura Cabana</a>,
-        el refugio eco boutique en la orilla de Perla Marina — bungalós de piedra bajo techo de cana,
-        dos restaurantes al aire libre, spa y yoga por la mañana junto al agua.</p>
+        un hotel eco boutique en la orilla de Perla Marina — bungalós de piedra bajo techo de
+        cana, dos restaurantes al aire libre, spa y yoga por la mañana junto al agua.
+        El Hideaway también queda cerca.</p>
         <p>Más allá, restaurantes y beach bars se extienden desde Sosúa hasta
         Cabarete — pescado fresco una noche, leña la siguiente.
         La calma es a lo que vuelves.</p>
@@ -1313,8 +1333,9 @@
       <p class="story-wordmark" aria-hidden="true">ATABAY</p>
       <p class="keyline">Nombrado por la diosa que cuidaba esta costa.
       <span>Solo que no puedes verla en el mapa.</span></p>
-      <p>La luna de nuestra marca no es decoración. La luna mueve las mareas,
-      y las mareas deciden cuándo prenden los spots. Ella está ahí — solo que no dicha.</p>
+      <p>Mira la marca otra vez y verás lo que contiene: una ola, en pleno tubo, con una luna
+      llena dentro de la curva. Esa luna no es decoración. La luna mueve las mareas, y las
+      mareas deciden cuándo prenden los spots. Ella está ahí — solo que nunca dicha.</p>
       <p class="label moon-line">La luna conoce el camino.</p>
     </div>
   </div>
@@ -1407,7 +1428,7 @@
   </svg>
   <span class="stamp contact-stamp" aria-hidden="true">Sin mapa.</span>
   <img class="portrait reveal" src="../assets/portrait.jpg" alt="Philip — surfing the north coast">
-  <p class="label reveal">Una persona. Sin intermediarios. Surfea.</p>
+  <p class="label reveal">Un contacto directo.</p>
   <h2 class="reveal">Habla con Philip</h2>
   <p class="reveal">Preguntas, documentos, una caminata por el terreno —
   un contacto directo, desde el primer mensaje hasta el cierre. Sin formularios, sin embudos.</p>
