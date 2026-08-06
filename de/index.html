@@ -1675,13 +1675,20 @@ addEventListener('scroll',()=>{
   b.textContent='\u2630';
   document.body.appendChild(b);
   b.addEventListener('click',()=>{
-    hdr.style.transform='';               // bring the header back
+    hdr.style.transform='';
     hdr.classList.add('scrolled');
     nav.classList.toggle('open');
+    sync();
   });
-  addEventListener('scroll',()=>{
-    b.classList.toggle('show', scrollY>240 && !nav.classList.contains('open'));
-  },{passive:true});
+  // sentinel + IntersectionObserver: independent of scroll events (Lenis-safe)
+  const mark=document.createElement('div');
+  mark.setAttribute('aria-hidden','true');
+  mark.style.cssText='position:absolute;top:240px;left:0;width:1px;height:1px;pointer-events:none';
+  document.body.prepend(mark);
+  let past=false;
+  function sync(){ b.classList.toggle('show', past && !nav.classList.contains('open')); }
+  new IntersectionObserver(es=>{ past=!es[0].isIntersecting; sync(); },{threshold:0}).observe(mark);
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
 })();
 
 /* ---- reveal on scroll ---- */
