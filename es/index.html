@@ -167,6 +167,12 @@
     nav.top.open{display:flex}
     nav.top a{padding:1em 0;font-size:.72rem;border-bottom:1px dashed var(--hairline);color:var(--bone-dim)}
     nav.top a:last-child{border-bottom:none}
+    /* dropdown panel is dark, so keep its links light even when the bar is cream */
+    header.scrolled nav.top a{color:var(--bone-dim)}
+    header.scrolled nav.top a:hover{
+      color:var(--gold);
+      text-shadow:0 0 10px rgba(216,185,138,.6), 0 0 22px rgba(216,185,138,.3);
+    }
   }
 
   .lang{display:flex;align-items:center;gap:.45em;font-family:var(--mono);font-size:.6rem;letter-spacing:.18em}
