@@ -546,6 +546,12 @@
   }
   footer .descriptor{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bone-dim);max-width:52em;line-height:2}
   footer .mv{font-family:var(--mono);font-size:.55rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(237,230,214,.3)}
+  .mv a{
+    color:inherit;text-decoration:none;
+    border-bottom:1px solid rgba(237,230,214,.18);padding-bottom:.12em;
+    transition:color .3s,border-color .3s;
+  }
+  .mv a:hover{color:var(--gold);border-bottom-color:var(--gold)}
   .foot-contact{
     display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.5rem .9rem;
     font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;
@@ -1258,7 +1264,7 @@
     <a href="tel:+18292827828">+1 829 282 7828</a><span aria-hidden="true">·</span><a href="mailto:p.mennen@mac.com">p.mennen@mac.com</a>
   </p>
   <span class="stamp" aria-hidden="true">Sin mapa.</span>
-  <p class="mv">© 2026 ATABAY · Brand &amp; content by MENNENVISION</p>
+  <p class="mv">© 2026 ATABAY · Brand &amp; content by <a href="https://www.mennenvision.com" target="_blank" rel="noopener">MENNENVISION</a></p>
 </footer>
 
 <a href="#top" class="to-top" id="totop" aria-label="Back to top">
