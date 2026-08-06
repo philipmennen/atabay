@@ -1283,10 +1283,23 @@ addEventListener('scroll',()=>{
   requestAnimationFrame(drift);
 })();
 
-/* ---- mobile menu: close on link click ---- */
-document.querySelectorAll('#mainnav a').forEach(a=>a.addEventListener('click',()=>{
-  document.getElementById('mainnav').classList.remove('open');
-}));
+/* ---- mobile menu: close on link click, on scroll, on outside tap ---- */
+(function(){
+  const nav=document.getElementById('mainnav');
+  if(!nav)return;
+  const close=()=>nav.classList.remove('open');
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+  let lastY=scrollY;
+  addEventListener('scroll',()=>{
+    if(nav.classList.contains('open') && Math.abs(scrollY-lastY)>8) close();
+    lastY=scrollY;
+  },{passive:true});
+  addEventListener('pointerdown',e=>{
+    if(!nav.classList.contains('open'))return;
+    if(!nav.contains(e.target) && !e.target.closest('.nav-toggle')) close();
+  },{passive:true});
+  addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+})();
 
 /* ---- reveal on scroll ---- */
 const io=new IntersectionObserver(es=>es.forEach(e=>{
