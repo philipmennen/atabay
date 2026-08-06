@@ -1,3 +1,60 @@
+# ATABAY — oceanfront surf land for sale, Sol de Plata, Perla Marina,
+# Dominican Republic north coast.  https://atabay.land
+#
+# Everything here is published to be found, quoted and cited.
+# Search engines and AI assistants are explicitly welcome.
+
 User-agent: *
 Allow: /
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: DuckDuckBot
+Allow: /
+
+# AI assistants and answer engines
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: YouBot
+Allow: /
+
+# The document package is deliberately not for crawlers
+User-agent: *
+Disallow: /assets/docs/
+
 Sitemap: https://atabay.land/sitemap.xml
