@@ -146,16 +146,19 @@
     transition:color .3s,border-color .3s;
   }
   header.scrolled .nav-toggle{color:var(--ink);border-color:rgba(11,27,38,.5)}
-  @media(max-width:1280px){nav.top{gap:1.2rem;margin-right:1rem}}
   nav.top a{
     font-family:var(--mono);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;
     color:var(--bone-dim);text-decoration:none;transition:color .3s;white-space:nowrap;
   }
-  @media(max-width:1280px){nav.top a{letter-spacing:.14em}}
+  @media(max-width:1280px){nav.top{gap:1rem;margin-right:.9rem}nav.top a{letter-spacing:.1em;font-size:.58rem}}
+  @media(max-width:1040px){nav.top{gap:.75rem}nav.top a{letter-spacing:.06em;font-size:.55rem}
+    .brand svg{height:26px}.brand-word{font-size:.82rem;letter-spacing:.24em}
+    header a.wa{padding:.5em .9em;font-size:.56rem;letter-spacing:.16em}
+    .nav-right{gap:.7rem}.lang{font-size:.55rem;gap:.28em}}
   nav.top a:hover{color:var(--gold)}
   header a.wa{font-family:var(--mono);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;white-space:nowrap;color:var(--gold);border:1px solid rgba(216,185,138,.4);padding:.55em 1.1em;border-radius:2em;transition:all .3s}
   header a.wa:hover{background:var(--gold);color:var(--ink)}
-  @media(max-width:1080px){
+  @media(max-width:900px){
     .nav-toggle{display:block}
     nav.top{
       position:absolute;top:100%;left:0;right:0;margin:0;
@@ -652,7 +655,7 @@
   }
   .facts{position:relative}
   .facts .sec-head,.facts .facts-grid{position:relative;z-index:2}
-  @media(max-width:1080px){.atabey-glyph{display:none}}
+  @media(max-width:900px){.atabey-glyph{display:none}}
 
   /* ---------- pricing ---------- */
   .price-box{margin-top:2.6rem;border-top:1px solid rgba(11,27,38,.16)}
@@ -718,7 +721,7 @@
     position:absolute;left:4.8%;top:8%;z-index:2;margin:0;
     color:var(--gold);border-color:rgba(216,185,138,.65);
   }
-  @media(max-width:1080px){.contact svg.contact-compass,.contact span.contact-stamp{display:none}}
+  @media(max-width:900px){.contact svg.contact-compass,.contact span.contact-stamp{display:none}}
   .contact h2{
     font-family:var(--sans);font-stretch:120%;font-weight:560;text-transform:uppercase;
     font-size:clamp(1.8rem,4.6vw,3.6rem);line-height:1.1;margin:1.6rem 0 1.2rem;
@@ -995,7 +998,7 @@
   }
   #floatburger.show{opacity:1;pointer-events:auto;transform:none}
   #floatburger:active{background:rgba(216,185,138,.9);color:var(--ink)}
-  @media(max-width:1080px){#floatburger{display:flex}}
+  @media(max-width:900px){#floatburger{display:flex}}
 
   /* ---------- reveal ---------- */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.6,.2,1),transform .9s cubic-bezier(.2,.6,.2,1)}
@@ -1616,7 +1619,7 @@
 <script>
 /* ---- header state ---- */
 const hdr=document.getElementById('hdr');
-const mqMobile=matchMedia('(max-width:760px)');
+const mqMobile=matchMedia('(max-width:900px)');
 addEventListener('scroll',()=>{
   hdr.classList.toggle('scrolled',scrollY>40);
   hdr.style.transform=mqMobile.matches
