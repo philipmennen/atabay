@@ -92,45 +92,6 @@
   }
   ::selection{background:var(--gold);color:var(--ink)}
 
-  /* ---------- access gate ---------- */
-  #gate{
-    position:fixed;inset:0;z-index:200;background:var(--ink-deep);
-    display:flex;align-items:center;justify-content:center;padding:2rem;
-    transition:opacity .6s ease,visibility .6s;
-  }
-  #gate.open{opacity:0;visibility:hidden;pointer-events:none}
-  .gate-inner{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:24em}
-  .gate-inner svg{width:74px;margin-bottom:1.6rem}
-  .gate-word{
-    font-family:var(--sans);font-stretch:125%;font-weight:600;
-    font-size:1.5rem;letter-spacing:.34em;text-indent:.34em;color:var(--bone);margin-bottom:1rem;
-  }
-  .gate-note{
-    font-family:var(--mono);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;
-    color:var(--bone-dim);margin-bottom:2rem;line-height:2;
-  }
-  #gate-form{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
-  #gate-input{
-    background:transparent;border:1px solid var(--bone-faint);border-radius:2em;
-    padding:.9em 1.4em;color:var(--bone);width:12em;
-    font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;text-align:center;
-    outline:none;transition:border-color .3s;
-  }
-  #gate-input:focus{border-color:var(--gold)}
-  #gate-form button{
-    background:var(--gold);color:var(--ink);border:none;cursor:pointer;border-radius:2em;
-    padding:.9em 1.9em;font-family:var(--mono);font-size:.68rem;letter-spacing:.26em;
-    text-transform:uppercase;font-weight:500;transition:background .3s;
-  }
-  #gate-form button:hover{background:var(--bone)}
-  .gate-err{
-    font-family:var(--mono);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;
-    color:#C97B6B;margin-top:1.2rem;opacity:0;transition:opacity .3s;
-  }
-  .gate-err.show{opacity:1}
-  body.gated{overflow:hidden}
-  html:not(.js) #gate{display:none}
-
   /* ---------- grain ---------- */
   body::after{
     content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.05;
@@ -1046,22 +1007,6 @@
 </style>
 </head>
 <body>
-<div id="gate" aria-label="Private preview">
-  <div class="gate-inner">
-    <svg viewBox="22 32 186 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M 204 150 C 184 142 178 130 176 112 A 76 76 0 1 0 42 161 A 16 16 0 0 0 66 140 A 44 44 0 1 1 144 112 C 148 130 168 142 204 150 Z" fill="#EDE6D6"/>
-      <circle cx="102" cy="118" r="15" fill="#D8B98A"/>
-    </svg>
-    <p class="gate-word">ATABAY</p>
-    <p class="gate-note">Private preview. Enter the key to continue.</p>
-    <form id="gate-form" autocomplete="off">
-      <input id="gate-input" type="password" placeholder="KEY" aria-label="Access key" autocomplete="off" spellcheck="false">
-      <button type="submit">Enter</button>
-    </form>
-    <p class="gate-err" id="gate-err">Wrong key.</p>
-  </div>
-</div>
-
 <div id="loader" aria-hidden="true">
   <svg viewBox="22 32 186 150" xmlns="http://www.w3.org/2000/svg">
     <path d="M 204 150 C 184 142 178 130 176 112 A 76 76 0 1 0 42 161 A 16 16 0 0 0 66 140 A 44 44 0 1 1 144 112 C 148 130 168 142 204 150 Z" fill="#EDE6D6"/>
@@ -1611,36 +1556,6 @@
 
 <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
 <script>
-/* ---- access gate ---- */
-(function(){
-  const KEY='81706314cc7559cb4f5b8be1c2c09fd4811078ec1d88d912420c5a8756f8a00e';
-  const gate=document.getElementById('gate');
-  if(!gate)return;
-  const form=document.getElementById('gate-form');
-  const input=document.getElementById('gate-input');
-  const err=document.getElementById('gate-err');
-  function unlock(){
-    gate.classList.add('open');
-    document.body.classList.remove('gated');
-    setTimeout(()=>gate.remove(),700);
-  }
-  async function sha(t){
-    const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));
-    return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
-  }
-  if(localStorage.getItem('atabay-key')===KEY){ gate.remove(); }
-  else {
-    document.body.classList.add('gated');
-    setTimeout(()=>input.focus(),400);
-    form.addEventListener('submit',async e=>{
-      e.preventDefault();
-      const h=await sha(input.value.trim().toLowerCase());
-      if(h===KEY){ localStorage.setItem('atabay-key',KEY); unlock(); }
-      else { err.classList.add('show'); input.value=''; input.focus(); }
-    });
-  }
-})();
-
 /* ---- header state ---- */
 const hdr=document.getElementById('hdr');
 const mqMobile=matchMedia('(max-width:760px)');
