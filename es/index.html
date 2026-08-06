@@ -277,6 +277,24 @@
   }
   @media(prefers-reduced-motion:reduce){.compass .needle{animation:none}}
 
+  /* ---------- live conditions ---------- */
+  .now{
+    margin-top:2.4rem;opacity:0;transition:opacity 1.4s ease;
+    display:flex;flex-direction:column;align-items:center;gap:.55rem;
+  }
+  .now.in{opacity:1}
+  .now-label{
+    font-family:var(--mono);font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--bone-dim);
+  }
+  .now-vals{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem 1.1rem;
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+    color:rgba(237,230,214,.75);
+  }
+  .now-vals b{color:var(--gold);font-weight:500;letter-spacing:.04em}
+  @media(max-width:520px){.now-vals{font-size:.6rem;gap:.3rem .8rem}}
+
   /* ---------- shared section chrome ---------- */
   section{position:relative;padding:clamp(5rem,12vh,9rem) clamp(1.4rem,6vw,6rem)}
   .sec-head{display:flex;align-items:baseline;gap:1.6rem;margin-bottom:3.4rem;flex-wrap:wrap}
@@ -1111,6 +1129,12 @@
       <a class="btn btn-gold" href="https://wa.me/18292827828" target="_blank" rel="noopener">Pregunta por el terreno</a>
       <a class="btn btn-ghost" href="#story">Lee el nombre</a>
     </div>
+  <div class="now" id="now" hidden aria-live="polite">
+    <p class="now-label">Hoy en Sol de Plata Gardens</p>
+    <p class="now-vals">
+      <span id="now-air"></span><span id="now-sea"></span><span id="now-wind"></span><span id="now-swell"></span>
+    </p>
+  </div>
   </div>
 
   <div class="coords">
@@ -1694,6 +1718,36 @@ addEventListener('scroll',()=>{
   addEventListener('resize',sync,{passive:true});
   (function tick(){ sync(); requestAnimationFrame(tick); })();
   sync();
+})();
+
+/* ---- live conditions (Open-Meteo, no key) ---- */
+(function(){
+  const box=document.getElementById('now'); if(!box)return;
+  const LAT=19.75, LON=-70.42;            // Sosua/Cabarete town, not the land
+  const pt=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+  const dir=d=>pt[Math.round(((d%360)/22.5))%16];
+  const el=id=>document.getElementById(id);
+  const air='aire', sea='agua', wind='viento', swell='swell';
+  Promise.allSettled([
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,wind_speed_10m,wind_direction_10m&timezone=America%2FSanto_Domingo`).then(r=>r.json()),
+    fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${LAT}&longitude=${LON}&current=wave_height,wave_period,sea_surface_temperature&timezone=America%2FSanto_Domingo`).then(r=>r.json())
+  ]).then(([w,m])=>{
+    let any=false;
+    if(w.status==='fulfilled'&&w.value&&w.value.current){
+      const c=w.value.current;
+      if(c.temperature_2m!=null){el('now-air').innerHTML='<b>'+Math.round(c.temperature_2m)+'°C</b> '+air;any=true;}
+      if(c.wind_speed_10m!=null){el('now-wind').innerHTML='<b>'+Math.round(c.wind_speed_10m)+' km/h '+dir(c.wind_direction_10m||0)+'</b> '+wind;any=true;}
+    }
+    if(m.status==='fulfilled'&&m.value&&m.value.current){
+      const c=m.value.current;
+      if(c.sea_surface_temperature!=null){el('now-sea').innerHTML='<b>'+Math.round(c.sea_surface_temperature)+'°C</b> '+sea;any=true;}
+      if(c.wave_height!=null){
+        const p=c.wave_period!=null?' @ '+Math.round(c.wave_period)+'s':'';
+        el('now-swell').innerHTML='<b>'+c.wave_height.toFixed(1)+' m'+p+'</b> '+swell;any=true;
+      }
+    }
+    if(any){box.hidden=false;requestAnimationFrame(()=>box.classList.add('in'));}
+  }).catch(()=>{});
 })();
 
 /* ---- reveal on scroll ---- */
