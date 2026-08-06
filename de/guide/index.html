@@ -1327,15 +1327,19 @@ addEventListener('scroll',()=>{
     hdr.style.transform='';
     hdr.classList.add('scrolled');
     nav.classList.toggle('open');
+    sync();
   });
-  // rAF-driven: independent of scroll events and smooth-scroll libraries
   let on=null;
-  (function tick(){
-    const want = (window.scrollY||document.documentElement.scrollTop||0) > 240
-                 && !nav.classList.contains('open');
+  function sync(){
+    const want=(window.scrollY||document.documentElement.scrollTop||0)>240
+               && !nav.classList.contains('open');
     if(want!==on){ on=want; b.classList.toggle('show',want); }
-    requestAnimationFrame(tick);
-  })();
+  }
+  // two independent triggers: scroll events and an animation frame loop
+  addEventListener('scroll',sync,{passive:true});
+  addEventListener('resize',sync,{passive:true});
+  (function tick(){ sync(); requestAnimationFrame(tick); })();
+  sync();
 })();
 
 /* ---- reveal on scroll ---- */
