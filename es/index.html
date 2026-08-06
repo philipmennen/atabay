@@ -1712,11 +1712,13 @@ addEventListener('scroll',()=>{
     nav.classList.toggle('open');
     sync();
   });
-  let on=null;
+  let on=null, tt=null;
   function sync(){
-    const want=(window.scrollY||document.documentElement.scrollTop||0)>240
-               && !nav.classList.contains('open');
+    const y=window.scrollY||document.documentElement.scrollTop||0;
+    const want=y>240 && !nav.classList.contains('open');
     if(want!==on){ on=want; b.classList.toggle('show',want); }
+    const arrow=document.getElementById('totop');
+    if(arrow){ const a=y>innerHeight*0.8; if(a!==tt){ tt=a; arrow.classList.toggle('show',a);} }
   }
   // two independent triggers: scroll events and an animation frame loop
   addEventListener('scroll',sync,{passive:true});

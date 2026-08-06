@@ -1237,6 +1237,10 @@
   <p class="mv">© 2026 ATABAY · Brand &amp; content by MENNENVISION</p>
 </footer>
 
+<a href="#top" class="to-top" id="totop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
 <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
 <script>
 /* ---- header state ---- */
@@ -1333,11 +1337,13 @@ addEventListener('scroll',()=>{
     nav.classList.toggle('open');
     sync();
   });
-  let on=null;
+  let on=null, tt=null;
   function sync(){
-    const want=(window.scrollY||document.documentElement.scrollTop||0)>240
-               && !nav.classList.contains('open');
+    const y=window.scrollY||document.documentElement.scrollTop||0;
+    const want=y>240 && !nav.classList.contains('open');
     if(want!==on){ on=want; b.classList.toggle('show',want); }
+    const arrow=document.getElementById('totop');
+    if(arrow){ const a=y>innerHeight*0.8; if(a!==tt){ tt=a; arrow.classList.toggle('show',a);} }
   }
   // two independent triggers: scroll events and an animation frame loop
   addEventListener('scroll',sync,{passive:true});
