@@ -46,4 +46,8 @@
     <loc>https://atabay.land/weather/</loc>
     <changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://atabay.land/surf/</loc>
+    <changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
 </urlset>
