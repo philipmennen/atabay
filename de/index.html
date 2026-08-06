@@ -737,6 +737,20 @@
   }
   footer .descriptor{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bone-dim);max-width:52em;line-height:2}
   footer .mv{font-family:var(--mono);font-size:.55rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(237,230,214,.3)}
+  .foot-contact{
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.5rem .9rem;
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;
+    margin:.2rem 0 .1rem;
+  }
+  .foot-contact a{
+    color:var(--gold);text-decoration:none;
+    border-bottom:1px solid rgba(216,185,138,.3);padding-bottom:.15em;
+    transition:color .3s,border-color .3s;
+  }
+  .foot-contact a:hover{color:var(--bone);border-bottom-color:var(--bone)}
+  .foot-contact span{color:rgba(237,230,214,.3)}
+  @media(max-width:420px){.foot-contact{font-size:.6rem;letter-spacing:.12em}}
+
   .socials{display:flex;gap:1.4rem;margin:.4rem 0 .6rem}
   .socials a{color:var(--bone-dim);transition:color .3s,transform .3s;display:block}
   .socials a:hover{color:var(--gold);transform:translateY(-2px)}
@@ -1611,6 +1625,9 @@
       </svg>
     </a>
   </div>
+  <p class="foot-contact">
+    <a href="tel:+18292827828">+1 829 282 7828</a><span aria-hidden="true">·</span><a href="mailto:p.mennen@mac.com">p.mennen@mac.com</a>
+  </p>
   <span class="stamp" aria-hidden="true">Sin mapa.</span>
   <p class="mv">© 2026 ATABAY · Brand &amp; content by MENNENVISION</p>
 </footer>
