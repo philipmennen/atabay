@@ -127,7 +127,7 @@
   @media(max-width:1040px){nav.top{gap:.75rem}nav.top a{letter-spacing:.06em;font-size:.55rem}
     .brand svg{height:26px}.brand-word{font-size:.82rem;letter-spacing:.24em}
     header a.wa{padding:.5em .9em;font-size:.56rem;letter-spacing:.16em}
-    .nav-right{gap:.7rem}.lang{font-size:.55rem;gap:.28em}}
+    .nav-right{gap:.7rem}.lang{font-size:.55rem}}
   nav.top a:hover{color:var(--gold)}
   header a.wa{font-family:var(--mono);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;white-space:nowrap;color:var(--gold);border:1px solid rgba(216,185,138,.4);padding:.55em 1.1em;border-radius:2em;transition:all .3s}
   header a.wa:hover{background:var(--gold);color:var(--ink)}
@@ -150,22 +150,52 @@
     }
   }
 
-  .lang{display:flex;align-items:center;gap:.45em;font-family:var(--mono);font-size:.6rem;letter-spacing:.18em}
-  .lang a{color:var(--bone-dim);text-decoration:none;transition:color .3s}
-  .lang a:hover{color:var(--gold)}
-  .lang a.on{color:var(--gold)}
-  .lang span{color:rgba(237,230,214,.25)}
-  header.scrolled .lang a{color:rgba(11,27,38,.5)}
-  header.scrolled .lang a:hover,header.scrolled .lang a.on{color:var(--ink-deep)}
-  header.scrolled .lang span{color:rgba(11,27,38,.3)}
+  .lang{position:relative;font-family:var(--mono);font-size:.6rem;letter-spacing:.18em}
+  .lang-btn{
+    display:flex;align-items:center;gap:.5em;
+    font:inherit;letter-spacing:inherit;text-transform:uppercase;
+    background:none;border:1px solid rgba(237,230,214,.22);border-radius:2em;
+    padding:.5em .85em .5em .95em;cursor:pointer;
+    color:var(--bone-dim);transition:color .3s,border-color .3s,background .3s;
+  }
+  .lang-btn:hover{color:var(--gold);border-color:rgba(216,185,138,.5)}
+  .lang-btn .caret{
+    width:.5em;height:.5em;border-right:1px solid currentColor;border-bottom:1px solid currentColor;
+    transform:rotate(45deg) translate(-.08em,-.08em);transition:transform .32s cubic-bezier(.33,0,.25,1);
+  }
+  .lang.open .lang-btn{color:var(--gold);border-color:rgba(216,185,138,.5)}
+  .lang.open .lang-btn .caret{transform:rotate(-135deg) translate(-.1em,-.1em)}
+  .lang-menu{
+    position:absolute;top:calc(100% + .5rem);right:0;z-index:60;min-width:8.6rem;
+    display:flex;flex-direction:column;
+    background:rgba(7,18,25,.97);backdrop-filter:blur(14px);
+    border:1px solid var(--hairline);border-radius:.7rem;overflow:hidden;
+    padding:.3rem 0;
+    opacity:0;visibility:hidden;transform:translateY(-.4rem);
+    transition:opacity .3s cubic-bezier(.33,0,.25,1),transform .3s cubic-bezier(.33,0,.25,1),visibility .3s;
+    box-shadow:0 18px 46px rgba(0,0,0,.45);
+  }
+  .lang.open .lang-menu{opacity:1;visibility:visible;transform:none}
+  .lang-menu a{
+    display:flex;align-items:center;justify-content:space-between;gap:1.2em;
+    padding:.72em 1.05em;text-decoration:none;white-space:nowrap;
+    color:var(--bone-dim);transition:color .25s,background .25s;
+  }
+  .lang-menu a .code{font-size:.9em;opacity:.5;letter-spacing:.16em}
+  .lang-menu a:hover{color:var(--gold);background:rgba(216,185,138,.08)}
+  .lang-menu a.on{color:var(--gold)}
+  .lang-menu a.on .code{opacity:.85}
+  header.scrolled .lang-btn{color:rgba(11,27,38,.6);border-color:rgba(11,27,38,.24)}
+  header.scrolled .lang-btn:hover,header.scrolled .lang.open .lang-btn{color:var(--ink-deep);border-color:rgba(11,27,38,.5)}
   @media(max-width:600px){
     header{padding-left:1rem;padding-right:1rem}
     .brand{gap:.55rem}
     .brand svg{height:26px}
     .brand-word{font-size:.82rem;letter-spacing:.24em}
     .nav-right{gap:.65rem}
-    .lang{flex-direction:row;gap:.3em;font-size:.5rem;letter-spacing:.12em}
-    .lang span{margin:0 -.05em}
+    .lang{font-size:.52rem;letter-spacing:.12em}
+    .lang-btn{padding:.5em .7em .5em .8em;gap:.42em}
+    .lang-menu{min-width:8rem}
     header a.wa{padding:.5em .85em;font-size:.55rem;letter-spacing:.16em}
     .nav-toggle{padding:.3em .48em;font-size:.95rem}
   }
@@ -784,7 +814,7 @@
 
   /* ---------- glow on hover: nav + headings ---------- */
   nav.top a{
-    display:inline-block;transform-origin:center;
+    position:relative;display:inline-block;transform-origin:center;
     transition:color 2.4s cubic-bezier(.33,0,.25,1),
                text-shadow 2.4s cubic-bezier(.33,0,.25,1),
                transform 2.4s cubic-bezier(.33,0,.25,1);
@@ -792,6 +822,24 @@
   nav.top a:hover{
     transition-duration:2.8s;transform:scale(1.22);
     text-shadow:0 0 10px rgba(216,185,138,.6), 0 0 22px rgba(216,185,138,.3);
+  }
+  /* gold underline follows the pointer and marks the current page */
+  nav.top a::after{
+    content:"";position:absolute;left:0;right:0;bottom:-.62em;height:1px;
+    background:var(--gold);box-shadow:0 0 8px rgba(216,185,138,.55);
+    opacity:0;transform:scaleX(0);transform-origin:left center;
+    transition:transform .5s cubic-bezier(.33,0,.25,1),opacity .5s cubic-bezier(.33,0,.25,1);
+    pointer-events:none;
+  }
+  nav.top a:hover::after,nav.top a:focus-visible::after,
+  nav.top a:active::after,nav.top a[aria-current="page"]::after{opacity:1;transform:scaleX(1)}
+  nav.top a[aria-current="page"]{color:var(--gold)}
+  header.scrolled nav.top a::after{background:#A9834A;box-shadow:0 0 8px rgba(169,131,74,.4)}
+  header.scrolled nav.top a[aria-current="page"]{color:#8A6733}
+  @media(max-width:900px){
+    nav.top a::after{bottom:.55em;left:0;right:auto;width:2.2em}
+    header.scrolled nav.top a[aria-current="page"]{color:var(--gold)}
+    header.scrolled nav.top a::after{background:var(--gold);box-shadow:0 0 8px rgba(216,185,138,.55)}
   }
   header.scrolled nav.top a:hover{
     text-shadow:0 0 9px rgba(11,27,38,.32), 0 0 18px rgba(11,27,38,.15);
@@ -1018,10 +1066,10 @@
     <a href="/de/#facts">Titel &amp; Fakten</a>
     <a href="/de/guide/">Kaufratgeber</a>
     <a href="/de/surf/">Surf</a>
-    <a href="/de/weather/">Wetter</a>
+    <a href="/de/weather/" aria-current="page">Wetter</a>
   </nav>
   <div class="nav-right">
-    <div class="lang"><a href="/weather/">EN</a><span>·</span><a href="/de/weather/" class="on">DE</a><span>·</span><a href="/es/weather/">ES</a></div>
+    <div class="lang"><button type="button" class="lang-btn" aria-expanded="false" aria-haspopup="true" aria-label="Sprache">DE<i class="caret" aria-hidden="true"></i></button><div class="lang-menu" role="menu"><a href="/weather/" hreflang="en" role="menuitem">English<span class="code">EN</span></a><a href="/de/weather/" hreflang="de" class="on" role="menuitem">Deutsch<span class="code">DE</span></a><a href="/es/weather/" hreflang="es" role="menuitem">Español<span class="code">ES</span></a></div></div>
     <a class="wa" href="https://wa.me/18292827828" target="_blank" rel="noopener">WhatsApp</a>
     <button class="nav-toggle" aria-label="Menu" aria-controls="mainnav" onclick="document.getElementById('mainnav').classList.toggle('open')">☰</button>
   </div>
@@ -1556,6 +1604,22 @@ if(!REDUCE){
     requestAnimationFrame(plxTick);
   })();
 }
+
+/* ---- language dropdown ---- */
+(function(){
+  const box=document.querySelector('.lang'); if(!box)return;
+  const btn=box.querySelector('.lang-btn'); if(!btn)return;
+  const close=()=>{box.classList.remove('open');btn.setAttribute('aria-expanded','false')};
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const open=!box.classList.contains('open');
+    box.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  document.addEventListener('click',e=>{ if(!box.contains(e.target)) close(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'){close();btn.blur();} });
+  addEventListener('scroll',close,{passive:true});
+})();
 </script>
 </body>
 </html>
