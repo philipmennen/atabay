@@ -926,7 +926,8 @@
   /* ---------- custom cursor ---------- */
   #cur,#curring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:120;transform:translate(-50%,-50%)}
   #cur{width:30px;height:24px;background:none;border-radius:0}
-  #cur svg{width:100%;height:100%;display:block;filter:drop-shadow(0 1px 5px rgba(7,18,25,.55));transition:opacity .25s}
+  #cur svg{width:100%;height:100%;display:block;filter:drop-shadow(0 1px 5px rgba(7,18,25,.55));transition:opacity .25s,filter .35s,color .35s}
+  #cur.dark svg{filter:drop-shadow(0 1px 5px rgba(237,230,214,.75))}
   #curring{
     width:36px;height:36px;border:1px solid rgba(216,185,138,.5);
     transition:width .35s,height .35s,border-color .35s,background .35s;
@@ -1448,6 +1449,19 @@ if(FINE && !REDUCE){
   d.innerHTML='<svg viewBox="18 20 202 166" xmlns="http://www.w3.org/2000/svg"><defs><mask id="mk2"><rect x="0" y="0" width="240" height="200" fill="white"/><circle cx="103" cy="92" r="15" fill="black"/><circle cx="108.2" cy="86.8" r="13.9" fill="white"/></mask></defs><g mask="url(#mk2)" fill="currentColor"><path d="M 210 152 C 186 144 178 131 175 111 A 76 76 0 1 0 40 150 C 56 148 68 140 76 126 A 44 44 0 1 1 141 107 C 145 128 170 143 210 152 Z"/><circle cx="103" cy="92" r="15"/></g></svg>';
   const r=document.createElement('div');r.id='curring';
   document.body.append(d,r);
+  let lastEl=null,lastLight=false;
+  /* is the surface under the pointer light? walk up to the first opaque background */
+  const DARKBLOCK='.hero,.g-hero,.g-hero-bg,.band,.full-bleed,.pm-photo,.enc-video';
+  function onLight(el){
+    if(!el) return false;
+    if(el.closest && el.closest(DARKBLOCK)) return false;   // photo / gradient backdrops
+    for(let n=el;n&&n.nodeType===1;n=n.parentElement){
+      const m=/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/.exec(getComputedStyle(n).backgroundColor);
+      if(m&&(m[4]===undefined||parseFloat(m[4])>0.45))
+        return (0.2126*+m[1]+0.7152*+m[2]+0.0722*+m[3])/255>0.5;
+    }
+    return false;
+  }
   let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
   addEventListener('mousemove',e=>{
     mx=e.clientX;my=e.clientY;
@@ -1457,9 +1471,9 @@ if(FINE && !REDUCE){
     rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
     r.style.left=rx+'px';r.style.top=ry+'px';
     const el=document.elementFromPoint(mx,my);
-    const dark=!!(el&&el.closest('.facts, header.scrolled'));
-    d.classList.toggle('dark',dark);
-    r.classList.toggle('dark',dark);
+    if(el!==lastEl){ lastEl=el; lastLight=onLight(el); }
+    d.classList.toggle('dark',lastLight);
+    r.classList.toggle('dark',lastLight);
     requestAnimationFrame(loop);
   })();
   document.querySelectorAll('a,button,.btn,.lot').forEach(el=>{
