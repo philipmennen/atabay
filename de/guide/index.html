@@ -91,8 +91,14 @@
   header.scrolled{
     background:rgba(216,185,138,.52);backdrop-filter:blur(18px);
     padding-top:.85rem;padding-bottom:.85rem;
-    border-bottom:1px solid rgba(11,27,38,.14);
   }
+  /* soft scroll edge where the floating bar meets content — no hard divider */
+  header::after{
+    content:"";position:absolute;left:0;right:0;top:100%;height:16px;pointer-events:none;
+    background:linear-gradient(180deg,rgba(7,18,25,.22),rgba(7,18,25,0));
+    opacity:0;transition:opacity .5s;
+  }
+  header.scrolled::after{opacity:1}
   header.scrolled .brand-word{color:var(--ink)}
   header.scrolled nav.top a{color:rgba(11,27,38,.74)}
   header.scrolled nav.top a:hover{color:var(--ink-deep);text-shadow:0 0 .5px currentColor}
@@ -116,8 +122,9 @@
     display:none;background:none;cursor:pointer;
     border:1px solid rgba(216,185,138,.4);border-radius:8px;
     color:var(--gold);font-size:1.05rem;line-height:1;padding:.35em .55em;
-    transition:color .3s,border-color .3s;
+    transition:color .3s,border-color .3s,transform .08s ease-out;
   }
+  .nav-toggle:active{transform:scale(.92)}
   header.scrolled .nav-toggle{color:var(--ink);border-color:rgba(11,27,38,.5)}
   nav.top a{
     font-family:var(--mono);font-size:.635rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;
@@ -133,7 +140,8 @@
     header a.wa{padding:.5em .9em;font-size:.56rem;letter-spacing:.16em}
     .nav-right{gap:.7rem}.lang{font-size:.55rem}}
   nav.top a:hover{color:var(--gold)}
-  header a.wa{font-family:var(--mono);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;white-space:nowrap;color:var(--gold);border:1px solid rgba(216,185,138,.4);padding:.55em 1.1em;border-radius:2em;transition:all .3s}
+  header a.wa{font-family:var(--mono);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;white-space:nowrap;color:var(--gold);border:1px solid rgba(216,185,138,.4);padding:.55em 1.1em;border-radius:2em;transition:background .3s,color .3s,border-color .3s,transform .08s ease-out}
+  header a.wa:active{transform:scale(.96)}
   header a.wa:hover{background:var(--gold);color:var(--ink)}
   @media(max-width:900px){
     .nav-toggle{display:block}
@@ -163,6 +171,8 @@
     color:var(--bone-dim);transition:color .3s,border-color .3s,background .3s;
   }
   .lang-btn:hover{color:var(--gold);border-color:rgba(216,185,138,.5)}
+  .lang-btn:active{transform:scale(.95);transition-duration:.08s}
+  .lang-menu a:active{background:rgba(216,185,138,.16);transition-duration:.08s}
   .lang-btn .caret{
     width:.5em;height:.5em;border-right:1px solid currentColor;border-bottom:1px solid currentColor;
     transform:rotate(45deg) translate(-.08em,-.08em);transition:transform .32s cubic-bezier(.33,0,.25,1);
@@ -243,8 +253,12 @@
   .cta-row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
   .btn{
     font-family:var(--mono);font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;
-    text-decoration:none;padding:1.05em 2.2em;border-radius:3em;transition:all .35s;
+    text-decoration:none;padding:1.05em 2.2em;border-radius:3em;
+    transition:background .35s,color .35s,border-color .35s,box-shadow .35s,
+               transform .18s cubic-bezier(.2,.6,.2,1),filter .08s ease-out;
   }
+  /* press feedback on pointer-down — brightness, because the magnet effect owns transform */
+  .btn:active{filter:brightness(.9)}
   .btn-gold{background:var(--gold);color:var(--ink);font-weight:500}
   .btn-gold:hover{background:var(--bone);transform:translateY(-2px)}
   .btn-ghost{border:1px solid var(--bone-faint);color:var(--bone-dim)}
@@ -815,6 +829,7 @@
   }
   .to-top.show{opacity:1;pointer-events:auto;transform:none}
   .to-top:hover{background:var(--bone);transform:translateY(-3px)}
+  .to-top:active{transform:scale(.92);transition-duration:.08s}
 
   /* ---------- glow on hover: nav + headings ---------- */
   nav.top a{
@@ -939,6 +954,29 @@
   #curring.big.dark{border-color:var(--ink-deep);background:rgba(11,27,38,.08)}
   html.curfx,html.curfx a,html.curfx button{cursor:none}
   @media(pointer:coarse){#cur,#curring{display:none}}
+
+  /* ---------- increased contrast ---------- */
+  @media(prefers-contrast:more){
+    :root{
+      --bone-dim:rgba(237,230,214,.88);
+      --bone-faint:rgba(237,230,214,.45);
+      --hairline:rgba(237,230,214,.35);
+    }
+    .btn-ghost{border-color:rgba(237,230,214,.75);color:var(--bone)}
+    header.scrolled nav.top a,header.scrolled .lang-btn{color:var(--ink-deep)}
+  }
+
+  /* ---------- reduced transparency ---------- */
+  @media(prefers-reduced-transparency:reduce){
+    header.scrolled{background:#D8B98A;backdrop-filter:none}
+    .lang-menu{background:#071219;backdrop-filter:none}
+    #floatburger{background:#071219;backdrop-filter:none}
+    .lot{background:rgba(7,18,25,.96);backdrop-filter:none}
+    body.guide header:not(.scrolled){background:#071219;backdrop-filter:none}
+  }
+  @media(prefers-reduced-transparency:reduce) and (max-width:900px){
+    nav.top{background:#071219;backdrop-filter:none}
+  }
 
   /* ---------- reduced motion ---------- */
   @media(prefers-reduced-motion:reduce){
