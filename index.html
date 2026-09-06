@@ -41,7 +41,7 @@
     {
       "@type": "RealEstateListing",
       "name": "ATABAY — Three titled oceanfront lots, Sol de Plata, Perla Marina",
-      "description": "Three titled oceanfront lots of 2,764.99 m² each — 8,295 m² together — inside the gated community Sol de Plata, Perla Marina, between Sosúa and Cabarete on the Dominican Republic north coast. Short walk to surf breaks, 7 minutes to Playa Encuentro. Each lot carries its own registered Certificado de Título (Registro de Títulos de Puerto Plata, 2026), independently verifiable via ji.gov.do.",
+      "description": "Three titled oceanfront lots of 2,764.99 m² each (plus a fourth parcel of 1,558 m², title in process — 9,853 m² as one package) inside the gated community Sol de Plata, Perla Marina, between Sosúa and Cabarete on the Dominican Republic north coast. Short walk to surf breaks, 7 minutes to Playa Encuentro. Each lot carries its own registered Certificado de Título (Registro de Títulos de Puerto Plata, 2026), independently verifiable via ji.gov.do.",
       "url": "https://atabay.land/",
       "provider": {"@id": "#atabay"},
       "about": {
@@ -1264,7 +1264,7 @@
 <div class="strip reveal">
   <div><b><span class="num" data-count="3">0</span></b><span>Oceanfront lots</span></div>
   <div><b><span class="num" data-count="2765">0</span> m²</b><span>Each — titled</span></div>
-  <div><b><span class="num" data-count="8295">0</span> m²</b><span>As one package</span></div>
+  <div><b><span class="num" data-count="9853">0</span> m²</b><span>As one package</span></div>
   <div><b><span class="num" data-count="5">0</span>–<span class="num" data-count="10">0</span> min</b><span>Walk to the breaks</span></div>
   <div><b><span class="num" data-count="0">0</span></b><span>Crowds</span></div>
 </div>
@@ -1320,10 +1320,11 @@
     </div>
   </div>
 
-    <p class="pkg-line reveal"><b>US$ 325 / m² individually — ≈ US$ 297 / m² for all three together.</b>
-  The three titled oceanfront lots: 8,295 m² for <span class="pkg-sum">US$ 2,463,250</span>.</p>
+    <p class="pkg-line reveal"><b>US$ 325 / m² individually — US$ 250 / m² for the whole package.</b>
+  All three lots plus the fourth parcel: 9,853 m² for <span class="pkg-sum">US$ 2,463,250</span>.</p>
 
 <p class="land-note reveal"><b>Three parallel lots, each running from the residential road to the water.</b>
+  A fourth parcel (1,558 m², title in process) completes the package — 9,853 m² of the north coast, in one piece.
   Inside Sol de Plata: gated, quiet, built out with villas — not a project on paper.</p>
 </section>
 
@@ -1643,16 +1644,17 @@
         <tr><td>Titles</td><td>Certificado de Título per lot · Jan 2026</td></tr>
         <tr><td>Registry</td><td>Registro de Títulos, Puerto Plata</td></tr>
         <tr><td>Verification</td><td>ji.gov.do — Jurisdicción Inmobiliaria</td></tr>
+        <tr><td>Package</td><td>+ 1,558 m² parcel · title in process</td></tr>
         <tr><td>Community</td><td>Sol de Plata — gated, HOA-managed</td></tr>
         <tr><td>Zoning</td><td>Single-family residential</td></tr>
-        <tr><td>Price</td><td>From US$ 899,000 per lot · US$ 2,463,250 for all three</td></tr>
+        <tr><td>Price</td><td>From US$ 899,000 per lot · US$ 2,463,250 as one package</td></tr>
       </table>
       <div class="price-box reveal">
         <p class="g-label price-label">Pricing</p>
         <div class="price-opt">
-          <p class="po-head">Option A · All three lots</p>
-          <p class="po-size">8,295 m²<span>three titled oceanfront lots, sold together</span></p>
-          <p class="po-rate">≈ US$ 297 / m²</p>
+          <p class="po-head">Option A · The whole package</p>
+          <p class="po-size">9,853 m²<span>three titled lots totalling 8,295 m² + one title-pending lot of 1,558 m²</span></p>
+          <p class="po-rate">US$ 250 / m²</p>
           <p class="po-total">US$ 2,463,250</p>
         </div>
         <div class="price-opt">
@@ -1926,7 +1928,7 @@ const FINE=matchMedia('(pointer:fine)').matches;
   function tick(now){
     const p=Math.min((now-t0)/T,1);
     const e=1-Math.pow(1-p,3);
-    numEl.textContent=Math.round(e*8295).toLocaleString('en-US')+' m²';
+    numEl.textContent=Math.round(e*9853).toLocaleString('en-US')+' m²';
     wave.style.strokeDashoffset=waveLen*(1-e);
     if(p<1){requestAnimationFrame(tick);return;}
     loader.classList.add('done');
